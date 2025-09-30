@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #fafafa;
+  color: #222;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  min-width: 350px;
+  max-width: 430px;
+  padding: 2rem 1.5rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 18px rgba(30, 42, 80, 0.10);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quote-block img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+blockquote {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  text-align: center;
+  margin: 0 0 1rem 0;
+  font-style: italic;
+}
+.quote-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  font-size: 1rem;
+  color: #888;
+}
+#quote-source {
+  color: #5693fa;
+  text-decoration: none;
+  font-size: .95em;
+}
+#quote-source:hover {
+  text-decoration: underline;
+}
