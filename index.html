@@ -1,23 +1,37 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Ежедневная мотивация</title>
+  <title>Daily Motivation — Сitata дня</title>
+  <meta name="description" content="A daily motivational quote, matched to what the world is talking about today.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot"></span>
+      <span id="brand-label" data-i18n="brand">Daily Motivation</span>
+    </div>
+    <button id="lang-toggle" class="lang-toggle" title="Switch language" data-i18n="switch">RU</button>
+  </header>
+
   <main>
-    <div class="quote-block">
-      <img id="quote-image" src="" alt="Мотивирующее изображение">
-      <blockquote id="quote-text"></blockquote>
+    <div class="card">
+      <div class="theme-tag">
+        <span id="theme-label"></span>
+        <span id="date-label"></span>
+      </div>
+      <img id="quote-image" src="" alt="">
+      <blockquote id="quote-text">&hellip;</blockquote>
       <div class="quote-meta">
         <span id="quote-author"></span>
-        <a id="quote-source" target="_blank">Источник</a>
+        <a id="quote-source" target="_blank" rel="noopener"></a>
       </div>
     </div>
+    <p class="footnote" data-i18n="footnote">A new quote every day &mdash; matched to the news.</p>
   </main>
-  <script src="quotes.js"></script>
-  <script src="script.js"></script>
+
+  <script src="app.js"></script>
 </body>
 </html>

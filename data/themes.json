@@ -1,0 +1,103 @@
+{
+  "themes": [
+    {
+      "name": "perseverance",
+      "label_en": "Perseverance",
+      "label_ru": "Настойчивость",
+      "keywords": ["marathon", "endurance", "persever", "struggle", "relentless", "survive", "rebuild", "comeback", "resilien", "never give up", "keep going", "effort", "grind", "overcome"],
+      "unsplash_query": "perseverance mountain climber"
+    },
+    {
+      "name": "change",
+      "label_en": "Change & growth",
+      "label_ru": "Перемены",
+      "keywords": ["reform", "transition", "transform", "shift", "evolve", "adapt", "new era", "breakthrough", "renew", "change", "pivot", "reshape", "revolution", "progress"],
+      "unsplash_query": "change path woods dawn"
+    },
+    {
+      "name": "focus",
+      "label_en": "Focus",
+      "label_ru": "Сосредоточенность",
+      "keywords": ["focus", "attention", "distraction", "mindful", "deep work", "concentration", "simplicity", "minimal", "priority", "narrow"],
+      "unsplash_query": "focused person desk"
+    },
+    {
+      "name": "courage",
+      "label_en": "Courage",
+      "label_ru": "Смелость",
+      "keywords": ["bold", "brave", "courage", "fearless", "dare", "risk", "defy", "stand up", "grit", "hero", "speak out"],
+      "unsplash_query": "courage lion dusk"
+    },
+    {
+      "name": "rest",
+      "label_en": "Rest & balance",
+      "label_ru": "Отдых и баланс",
+      "keywords": ["rest", "burnout", "recover", "heal", "balance", "pause", "recharge", "sleep", "recover", "stress", "calm", "serenity"],
+      "unsplash_query": "calm lake sunrise"
+    },
+    {
+      "name": "gratitude",
+      "label_en": "Gratitude",
+      "label_ru": "Благодарность",
+      "keywords": ["thanks", "grateful", "gratitude", "appreciat", "blessing", "thank", "community", "generosity", "giving"],
+      "unsplash_query": "sunset gratitude hands"
+    },
+    {
+      "name": "hope",
+      "label_en": "Hope",
+      "label_ru": "Надежда",
+      "keywords": ["hope", "optimism", "future", "possibility", "rebirth", "dawn", "breakthrough", "recovery", "heal forward", "light"],
+      "unsplash_query": "hope sunrise horizon"
+    },
+    {
+      "name": "discipline",
+      "label_en": "Discipline",
+      "label_ru": "Дисциплина",
+      "keywords": ["discipline", "habit", "routine", "consisten", "practice", "dedication", "mastery", "repeat", "structure", "commitment"],
+      "unsplash_query": "discipline runner morning"
+    },
+    {
+      "name": "service",
+      "label_en": "Service & purpose",
+      "label_ru": "Служение",
+      "keywords": ["volunteer", "service", "community", "purpose", "mission", "help", "aid", "rebuild", "contribute", "impact", "meaning"],
+      "unsplash_query": "helping hands teamwork"
+    },
+    {
+      "name": "action",
+      "label_en": "Action",
+      "label_ru": "Действие",
+      "keywords": ["launch", "start", "action", "initiative", "breakthrough", "go", "build", "create", "take first step", "momentum", "move"],
+      "unsplash_query": "action leap stairs"
+    },
+    {
+      "name": "learning",
+      "label_en": "Learning",
+      "label_ru": "Развитие",
+      "keywords": ["educat", "learn", "skill", "knowledge", "study", "curiosity", "teach", "grow", "discover", "training"],
+      "unsplash_query": "reading books library"
+    },
+    {
+      "name": "patience",
+      "label_en": "Patience",
+      "label_ru": "Терпение",
+      "keywords": ["patient", "wait", "timing", "slow", "steady", "overnight", "hurry", "rushed", "long game", "process"],
+      "unsplash_query": "patience tree roots"
+    },
+    {
+      "name": "unity",
+      "label_en": "Unity & together",
+      "label_ru": "Единство",
+      "keywords": ["unity", "together", "cooperation", "solidarity", "collaboration", "peace", "alliance", "partnership", "reconcile"],
+      "unsplash_query": "people together group"
+    },
+    {
+      "name": "innovation",
+      "label_en": "Innovation",
+      "label_ru": "Инновации",
+      "keywords": ["ai", "technology", "innovation", "startup", "breakthrough technology", "disrupt", "invent", "research", "space", "robot", "quantum"],
+      "unsplash_query": "technology abstract future"
+    }
+  ],
+  "fallback_pool": ["perseverance", "hope", "action", "focus", "courage"]
+}

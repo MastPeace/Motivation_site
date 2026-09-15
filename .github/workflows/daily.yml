@@ -1,0 +1,75 @@
+name: Daily Motivation
+
+on:
+  schedule:
+    # 00:15 Moscow (UTC+3) = 21:15 UTC prior day in winter, 21:15 in summer.
+    # Run at 18:15 UTC (21:15 MSK most of the year) -> keep simple: 18:15 UTC daily.
+    - cron: "15 18 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: motivation-daily
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate today's quote
+        run: python3 generator/daily.py
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+
+      - name: Commit generated data
+        run: |
+          git config user.name "motivation-bot"
+          git config user.email "motivation-bot@users.noreply.github.com"
+          git add data/daily.json data/history.json
+          if git diff --cached --quiet; then
+            echo "no changes (already generated today)"
+          else
+            git commit -m "daily: $(jq -r .date data/daily.json)"
+            git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    needs: generate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
