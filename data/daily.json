@@ -1,16 +1,15 @@
 {
-  "date": "2026-09-17",
-  "id": "qc91739be",
+  "date": "2026-09-18",
+  "id": "q8ad0ce38",
   "theme": "innovation",
-  "en": "Do not go where the path may lead, go instead where there is no path and leave a trail.",
-  "ru": "Не иди туда, куда ведёт тропа. Иди туда, где тропы нет, — и оставь след.",
-  "author": "Ralph Waldo Emerson",
-  "image": "https://picsum.photos/seed/20260917/1200/800",
-  "source": "https://www.brainyquote.com/quotes/ralph_waldo_emerson_100391",
-  "news_score": 12,
+  "en": "The secret of change is to focus all of your energy not on fighting the old, but on building the new.",
+  "ru": "Секрет перемен — сосредоточить всю энергию не на борьбе со старым, а на созидании нового.",
+  "author": "Socrates",
+  "image": "https://picsum.photos/seed/20260918/1200/800",
+  "source": "https://www.brainyquote.com/quotes/socrates_101277",
+  "news_score": 10,
   "news_sample": [
     "ai",
-    "technology",
     "space"
   ]
 }
