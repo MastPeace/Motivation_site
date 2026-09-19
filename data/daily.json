@@ -1,15 +1,12 @@
 {
-  "date": "2026-09-18",
-  "id": "q8ad0ce38",
-  "theme": "innovation",
-  "en": "The secret of change is to focus all of your energy not on fighting the old, but on building the new.",
-  "ru": "Секрет перемен — сосредоточить всю энергию не на борьбе со старым, а на созидании нового.",
-  "author": "Socrates",
-  "image": "https://picsum.photos/seed/20260918/1200/800",
-  "source": "https://www.brainyquote.com/quotes/socrates_101277",
-  "news_score": 10,
-  "news_sample": [
-    "ai",
-    "space"
-  ]
+  "date": "2026-09-19",
+  "id": "q34d90a25",
+  "theme": "perseverance",
+  "en": "Perseverance is not a long race; it is many short races one after the other.",
+  "ru": "Упорство — не долгий забег, а много коротких, один за другим.",
+  "author": "Walter Elliot",
+  "image": "https://picsum.photos/seed/20260919/1200/800",
+  "source": "https://www.brainyquote.com/quotes/walter_elliot_132740",
+  "news_score": 0,
+  "news_sample": null
 }
