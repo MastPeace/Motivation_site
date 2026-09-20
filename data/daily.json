@@ -1,12 +1,15 @@
 {
-  "date": "2026-09-19",
-  "id": "q34d90a25",
-  "theme": "perseverance",
-  "en": "Perseverance is not a long race; it is many short races one after the other.",
-  "ru": "Упорство — не долгий забег, а много коротких, один за другим.",
-  "author": "Walter Elliot",
-  "image": "https://picsum.photos/seed/20260919/1200/800",
-  "source": "https://www.brainyquote.com/quotes/walter_elliot_132740",
-  "news_score": 0,
-  "news_sample": null
+  "date": "2026-09-20",
+  "id": "q9639789c",
+  "theme": "innovation",
+  "en": "Innovation is seeing what everybody has seen and thinking what nobody has thought.",
+  "ru": "Инновация — видеть то, что видят все, и думать то, что не думал никто.",
+  "author": "Albert Szent-Györgyi",
+  "image": "https://picsum.photos/seed/20260920/1200/800",
+  "source": "https://www.brainyquote.com/quotes/albert_szent_gyorgyi_118081",
+  "news_score": 23,
+  "news_sample": [
+    "ai",
+    "space"
+  ]
 }
