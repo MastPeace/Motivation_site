@@ -1,15 +1,14 @@
 {
-  "date": "2026-09-21",
-  "id": "qad9c9d58",
+  "date": "2026-09-22",
+  "id": "q043c1ae6",
   "theme": "innovation",
-  "en": "Logic will get you from A to B. Imagination will take you everywhere.",
-  "ru": "Логика доставит тебя из точки А в точку Б. Воображение — куда угодно.",
-  "author": "Albert Einstein",
-  "image": "https://picsum.photos/seed/20260921/1200/800",
-  "source": "https://www.brainyquote.com/quotes/albert_einstein_100002",
-  "news_score": 15,
+  "en": "Talent hits a target no one else can hit. Genius hits a target no one else can see.",
+  "ru": "Талант попадает в цель, в которую никто не может попасть. Гений — в цель, которую никто не видит.",
+  "author": "Arthur Schopenhauer",
+  "image": "https://picsum.photos/seed/20260922/1200/800",
+  "source": "https://www.brainyquote.com/quotes/arthur_schopenhauer_106531",
+  "news_score": 8,
   "news_sample": [
-    "ai",
-    "space"
+    "ai"
   ]
 }
