@@ -1,16 +1,15 @@
 {
-  "date": "2026-09-24",
-  "id": "qcd3e650e",
-  "theme": "action",
-  "en": "The impediment to action advances action. What stands in the way becomes the way.",
-  "ru": "Препятствие на пути становится путём. То, что мешает, — продвигает.",
-  "author": "Marcus Aurelius",
-  "image": "https://picsum.photos/seed/20260924/1200/800",
-  "source": "https://en.wikiquote.org/wiki/Marcus_Aurelius",
-  "news_score": 9,
+  "date": "2026-09-25",
+  "id": "q9330555c",
+  "theme": "innovation",
+  "en": "The first rule of any technology used in a business is that automation applied to an efficient operation will magnify the efficiency. The second is that automation applied to an inefficient operation will magnify the inefficiency.",
+  "ru": "Первое правило технологий: автоматизация эффективного процесса повышает эффективность. Второе: автоматизация неэффективного повышает неэффективность.",
+  "author": "Bill Gates",
+  "image": "https://picsum.photos/seed/20260925/1200/800",
+  "source": "https://www.brainyquote.com/quotes/bill_gates_404553",
+  "news_score": 12,
   "news_sample": [
-    "launch",
-    "start",
-    "go"
+    "ai",
+    "space"
   ]
 }
