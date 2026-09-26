@@ -72,7 +72,7 @@ def wrap(text, font, max_w, draw):
 
 
 def render(entry, out_path):
-    from PIL import Image, ImageDraw, ImageFilter
+    from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
     # --- background gradient ---
     img = Image.new("RGB", SIZE)
@@ -114,27 +114,47 @@ def render(entry, out_path):
     draw.text((IMG_AREA[2] - draw.textlength(date_txt, font=fonts["date"]) - 26,
                IMG_AREA[1] + 18), date_txt, font=fonts["date"], fill=MUTED)
 
-    # --- quote block (centered, below the photo, upper-middle of lower area) ---
+    # --- quote block (auto-fit: shrink font until whole quote+author fit) ---
     lang = entry.get("lang", "en")
     quote_text = entry[lang]
     author = entry.get("author", "")
     max_qw = SIZE[0] - 160
-    qlines = wrap(quote_text, fonts["quote"], max_qw, draw)
-    # widen to make sure long quotes fit: cap at 6 lines
-    if len(qlines) > 6:
-        qlines = qlines[:6]
-    line_h = 92
-    base_y = IMG_AREA[3] + 60
+    region_top = IMG_AREA[3] + 52          # start of the text region below the photo
+    region_bottom = SIZE[1] - 96           # stop before the footnote line
+
+    def fit_block():
+        """Find (font_size, q_lines, line_h, block_bottom) that fits the region."""
+        # bounded search: start generous, tighten until it fits
+        best = None
+        for size_px in range(78, 30, -2):
+            qf = ImageFont.truetype(FONT_DIR, size_px)
+            lh = int(size_px * 1.32)
+            lines = wrap(quote_text, qf, max_qw, draw)
+            n = len(lines)
+            author_f = ImageFont.truetype(FONT_BOLD_DIR, max(int(size_px * 0.78), 26))
+            author_h = int(lh * 1.05) + 24
+            block_h = n * lh + author_h
+            if region_top + block_h <= region_bottom:
+                return size_px, qf, lines, lh, author_f, block_h, region_top
+            best = (size_px, qf, lines, lh, author_f, block_h, region_top)
+        return best  # last attempt (very long; still draws as much as fits)
+
+    size_px, qf, qlines, line_h, author_f, block_h, base_y = fit_block()
+    # vertically center the whole block (quote+author) inside the region
+    region_h = region_bottom - region_top
+    top_pad = max(0, (region_h - block_h) // 2)
+    origin_y = region_top + top_pad
+
     for i, ln in enumerate(qlines):
-        w = draw.textlength(ln, font=fonts["quote"])
+        w = draw.textlength(ln, font=qf)
         x = (SIZE[0] - w) // 2
-        draw.text((x, base_y + i * line_h), ln, font=fonts["quote"], fill=TEXT)
-    q_bottom = base_y + len(qlines) * line_h
+        draw.text((x, origin_y + i * line_h), ln, font=qf, fill=TEXT)
+    q_bottom = origin_y + len(qlines) * line_h
 
     # --- author ---
     author_txt = f"— {author}"
-    aw = draw.textlength(author_txt, font=fonts["author"])
-    draw.text(((SIZE[0] - aw) // 2, q_bottom + 30), author_txt, font=fonts["author"], fill=ACCENT)
+    aw = draw.textlength(author_txt, font=author_f)
+    draw.text(((SIZE[0] - aw) // 2, q_bottom + 20), author_txt, font=author_f, fill=ACCENT)
 
     # --- footnote pinned to the bottom ---
     foot = "Daily Motivation · every day a quote matched to the news"
