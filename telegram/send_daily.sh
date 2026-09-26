@@ -47,9 +47,54 @@ echo "Rendered: $POSTER"
 
 DATE_TAG="$(basename "$POSTER" .png | sed 's/^poster_//')"
 
-# --- 3. post to the group topic (General = thread 1) ---
-hermes send --to "telegram:${CHAT_ID}:${THREAD}" \
-  --subject "Quote of the day · ${DATE_TAG}" \
-  "MEDIA:${POSTER}"
+# --- 3. post to the group topic (General = thread 1), silent ---
+# Direct Bot API: sendPhoto with disable_notification=true (no notification sound).
+# Uses TELEGRAM_BOT_TOKEN from ~/.hermes/.env — never stored in the repo.
+CAPTION="Quote of the day · ${DATE_TAG}"
+RESP="$("$ROOT/venv/bin/python" - "${TELEGRAM_BOT_TOKEN:-}" "${CHAT_ID}" "${THREAD}" "${POSTER}" "${CAPTION}" <<'PY'
+import sys, json, os, urllib.request, urllib.parse, mimetypes
 
-echo "Posted to telegram:${CHAT_ID}:${THREAD}"
+token, chat_id, thread, poster, caption = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5]
+
+boundary = "----MotivationBoundary----"
+with open(poster, "rb") as f:
+    filedata = f.read()
+mt = mimetypes.guess_type(poster)[0] or "image/png"
+name = os.path.basename(poster)
+
+def part(name_, value, is_file=False):
+    if is_file:
+        return (f'--{boundary}\r\nContent-Disposition: form-data; name="{name_}"; '
+                f'filename="{value}"\r\nContent-Type: {mt}\r\n\r\n').encode() + filedata + b"\r\n"
+    return (f'--{boundary}\r\nContent-Disposition: form-data; name="{name_}"\r\n\r\n'
+            f'{value}\r\n').encode()
+
+def body_parts():
+    yield part("chat_id", chat_id)
+    # Topic routing: General topic = OMIT message_thread_id entirely (explicit "1" is
+    # rejected by the API; numeric ids above 1 refer to created forum sections).
+    if thread not in ("", "1", "general"):
+        yield part("message_thread_id", thread)
+    yield part("photo", name, True)
+    yield part("caption", caption)
+    yield part("disable_notification", "true")
+    yield f"--{boundary}--\r\n".encode()
+
+body = b"".join(body_parts())
+url = f"https://api.telegram.org/bot{token}/sendPhoto"
+req = urllib.request.Request(url, data=body, headers={"Content-Type": f"multipart/form-data; boundary={boundary}", "User-Agent": "motivation-poster/1.0"})
+try:
+    with urllib.request.urlopen(req, timeout=60) as r:
+        d = json.load(r)
+        if d.get("ok"):
+            print("sent ok, message_id=" + str(d["result"]["message_id"]))
+        else:
+            print("Telegram error: " + str(d.get("description")), file=sys.stderr)
+            sys.exit(1)
+except urllib.error.HTTPError as e:
+    print("HTTP " + str(e.code) + ": " + e.read().decode()[:300], file=sys.stderr)
+    sys.exit(1)
+PY
+)"
+echo "$RESP"
+echo "Posted (silent) to telegram:${CHAT_ID}:${THREAD}"

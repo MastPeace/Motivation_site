@@ -130,13 +130,18 @@ def image_url(theme, rng, unsplash_key=None, date=None):
     return f"https://picsum.photos/seed/{seed}/1200/800", None
 
 
+def moscow_today():
+    """Today's date in Moscow (UTC+3), used for the deterministic daily pick."""
+    return (datetime.datetime.utcnow() + datetime.timedelta(hours=3)).date().isoformat()
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=None)
     ap.add_argument("--cooldown", type=int, default=COOLDOWN_DAYS)
     args = ap.parse_args()
 
-    date = args.date or datetime.date.today().isoformat()
+    date = args.date or moscow_today()
     themes_data = load_json(THEMES_PATH, {})
     themes = themes_data.get("themes", []) if isinstance(themes_data, dict) else themes_data
     fallback_pool = themes_data.get("fallback_pool", ["hope"]) if isinstance(themes_data, dict) else ["hope"]

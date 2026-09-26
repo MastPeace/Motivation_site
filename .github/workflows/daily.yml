@@ -2,9 +2,9 @@ name: Daily Motivation
 
 on:
   schedule:
-    # 00:15 Moscow (UTC+3) = 21:15 UTC prior day in winter, 21:15 in summer.
-    # Run at 18:15 UTC (21:15 MSK most of the year) -> keep simple: 18:15 UTC daily.
-    - cron: "15 18 * * *"
+    # Roll the daily quote at Moscow midnight (00:05 MSK = 21:05 UTC prior day,
+    # MSK is UTC+3 year-round). Generates + publishes BEFORE the 09:00 MSK Telegram post.
+    - cron: "5 21 * * *"
   workflow_dispatch:
   push:
     branches: [main]
