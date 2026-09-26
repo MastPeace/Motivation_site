@@ -1,15 +1,16 @@
 {
-  "date": "2026-09-26",
-  "id": "q68d6c835",
+  "date": "2026-09-27",
+  "id": "qf43d2f6c",
   "theme": "innovation",
-  "en": "It is not the strongest of the species that survives, nor the most intelligent, but the one most responsive to change.",
-  "ru": "Выживает не самый сильный и не самый умный, а тот, кто лучше всех приспосабливается к переменам.",
-  "author": "Charles Darwin",
-  "image": "https://picsum.photos/seed/20260926/1200/800",
-  "source": "https://www.brainyquote.com/quotes/charles_darwin_391934",
-  "news_score": 13,
+  "en": "In the middle of difficulty lies opportunity.",
+  "ru": "В сердцевине любой трудности таится возможность.",
+  "author": "Albert Einstein",
+  "image": "https://picsum.photos/seed/20260927/1200/800",
+  "source": "https://www.brainyquote.com/quotes/albert_einstein_100201",
+  "news_score": 19,
   "news_sample": [
     "ai",
+    "technology",
     "space"
   ]
 }
