@@ -16,21 +16,26 @@
     <button id="lang-toggle" class="lang-toggle" title="Switch language" data-i18n="switch">RU</button>
   </header>
 
-  <main>
-    <div class="card">
-      <div class="theme-tag">
-        <span id="theme-label"></span>
-        <span id="date-label"></span>
-      </div>
-      <img id="quote-image" src="" alt="">
-      <blockquote id="quote-text">&hellip;</blockquote>
-      <div class="quote-meta">
-        <span id="quote-author"></span>
-        <a id="quote-source" target="_blank" rel="noopener"></a>
-      </div>
+  <main class="stage">
+    <div class="meta-row">
+      <span id="theme-label"></span>
+      <span id="date-label"></span>
     </div>
-    <p class="footnote" data-i18n="footnote">A new quote every day &mdash; matched to the news.</p>
+
+    <figure class="media">
+      <img id="quote-image" src="" alt="">
+    </figure>
+
+    <div class="quote-block">
+      <blockquote id="quote-text">&hellip;</blockquote>
+      <p class="quote-author" id="quote-author"></p>
+    </div>
   </main>
+
+  <footer class="sourcebar">
+    <p class="footnote" data-i18n="footnote">A new quote every day — matched to the news.</p>
+    <a id="quote-source" target="_blank" rel="noopener"></a>
+  </footer>
 
   <script src="app.js"></script>
 </body>
