@@ -157,7 +157,7 @@ def render(entry, out_path):
     draw.text(((SIZE[0] - aw) // 2, q_bottom + 20), author_txt, font=author_f, fill=ACCENT)
 
     # --- footnote pinned to the bottom ---
-    foot = "Daily Motivation · every day a quote matched to the news"
+    foot = "Daily Motivation Quote"
     fw = draw.textlength(foot, font=fonts["footnote"])
     draw.text(((SIZE[0] - fw) // 2, SIZE[1] - 70), foot, font=fonts["footnote"], fill=MUTED)
 
