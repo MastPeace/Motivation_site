@@ -1,16 +1,15 @@
 {
-  "date": "2026-10-03",
-  "id": "qb2d53cef",
-  "theme": "action",
-  "en": "You must be the change you wish to see in the world.",
-  "ru": "Будь той переменой, которую хочешь увидеть в мире.",
-  "author": "Mahatma Gandhi",
-  "image": "https://picsum.photos/seed/20261003/1200/800",
-  "source": "https://www.brainyquote.com/quotes/mahatma_gandhi_109075",
-  "news_score": 11,
+  "date": "2026-10-04",
+  "id": "q226f7f9c",
+  "theme": "innovation",
+  "en": "Do not wait; the time will never be 'just right.' Start where you stand.",
+  "ru": "Не жди: «подходящее» время не наступит никогда. Начинай с того, что есть, и с того места, где стоишь.",
+  "author": "Napoleon Hill",
+  "image": "https://picsum.photos/seed/20261004/1200/800",
+  "source": "https://www.brainyquote.com/quotes/napoleon_hill_132089",
+  "news_score": 12,
   "news_sample": [
-    "launch",
-    "go",
-    "build"
+    "ai",
+    "space"
   ]
 }
