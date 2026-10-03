@@ -1,15 +1,16 @@
 {
-  "date": "2026-10-02",
-  "id": "q425d9414",
-  "theme": "innovation",
-  "en": "If you are going through hell, keep going.",
-  "ru": "Если ты идёшь через ад — не останавливайся.",
-  "author": "Winston Churchill",
-  "image": "https://picsum.photos/seed/20261002/1200/800",
-  "source": "https://www.brainyquote.com/quotes/winston_churchill_103739",
-  "news_score": 14,
+  "date": "2026-10-03",
+  "id": "qb2d53cef",
+  "theme": "action",
+  "en": "You must be the change you wish to see in the world.",
+  "ru": "Будь той переменой, которую хочешь увидеть в мире.",
+  "author": "Mahatma Gandhi",
+  "image": "https://picsum.photos/seed/20261003/1200/800",
+  "source": "https://www.brainyquote.com/quotes/mahatma_gandhi_109075",
+  "news_score": 11,
   "news_sample": [
-    "ai",
-    "space"
+    "launch",
+    "go",
+    "build"
   ]
 }
