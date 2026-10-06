@@ -1,15 +1,16 @@
 {
-  "date": "2026-10-05",
-  "id": "q7d8e1dd0",
+  "date": "2026-10-06",
+  "id": "q5cc340e2",
   "theme": "innovation",
-  "en": "Learning never exhausts the mind.",
-  "ru": "Познание никогда не утомляет ум.",
-  "author": "Leonardo da Vinci",
-  "image": "https://picsum.photos/seed/20261005/1200/800",
-  "source": "https://www.brainyquote.com/quotes/leonardo_da_vinci_120066",
-  "news_score": 15,
+  "en": "Worry is a misuse of the imagination.",
+  "ru": "Тревога — бездарная трата воображения.",
+  "author": "Dan Zadra",
+  "image": "https://picsum.photos/seed/20261006/1200/800",
+  "source": "https://www.brainyquote.com/quotes/dan_zadra_145869",
+  "news_score": 18,
   "news_sample": [
     "ai",
+    "technology",
     "space"
   ]
 }
