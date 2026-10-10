@@ -1,16 +1,15 @@
 {
-  "date": "2026-10-09",
-  "id": "qd86264cd",
+  "date": "2026-10-10",
+  "id": "qb979f763",
   "theme": "innovation",
-  "en": "The measure of intelligence is the ability to change.",
-  "ru": "Мера ума — способность меняться.",
-  "author": "Albert Einstein",
-  "image": "https://picsum.photos/seed/20261009/1200/800",
-  "source": "https://www.brainyquote.com/quotes/albert_einstein_100199",
-  "news_score": 16,
+  "en": "Focus is not about saying yes to the thing you have to focus on. It is about saying no to the hundred other good ideas.",
+  "ru": "Фокус — это не сказать «да» чему-то одному. Это сказать «нет» сотне других хороших идей.",
+  "author": "Steve Jobs",
+  "image": "https://picsum.photos/seed/20261010/1200/800",
+  "source": "https://www.brainyquote.com/quotes/steve_jobs_416857",
+  "news_score": 12,
   "news_sample": [
     "ai",
-    "invent",
     "space"
   ]
 }
