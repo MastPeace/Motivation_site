@@ -72,7 +72,6 @@
     img.src = entry.image || "";
     img.alt = "";
     renderSource(entry);
-    document.querySelector(".card").classList.remove("loading");
     renderTheme(entry.theme);
   }
 

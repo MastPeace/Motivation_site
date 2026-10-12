@@ -22,6 +22,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;   /* topbar | stage | sourcebar */
   height: 100vh;
+  height: 100dvh;             /* mobile: ignore collapsing browser bars */
   overflow: hidden;
   font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: linear-gradient(165deg, #0f1117 0%, #161a26 60%, #11141d 100%) fixed;
@@ -50,13 +51,15 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.35rem, 1.4vh, 1.1rem);
-  padding: 0.5rem 0;
+  gap: clamp(0.5rem, 1.8vh, 1.2rem);
+  padding: 0.5rem 1.25rem;
+  min-height: 0;
+  overflow-y: auto;           /* a very long quote scrolls instead of being clipped */
 }
 
 .meta-row {
   display: flex; justify-content: center; gap: 1.2rem;
-  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;
   color: var(--muted);
 }
 #theme-label { color: var(--accent); font-weight: 600; }
@@ -65,11 +68,13 @@ body {
    (object-fit:cover crops instead of stretching). It fills available
    width up to a cap, and is height-capped so it never crowds the quote. */
 .media {
-  width: min(100%, 560px);
+  width: min(100%, 720px);
   aspect-ratio: 16 / 9;
-  max-height: 46vh;          /* never dominate the screen */
+  max-height: 38vh;          /* never dominate the screen */
   border-radius: 14px;
   border: 1px solid var(--border);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  flex-shrink: 0;
   overflow: hidden;
   background: var(--card);
   display: flex;
@@ -85,20 +90,29 @@ body {
 /* Quote block, sits in the lower-center zone. The top margin pushes the
    text comfortably below the vertical centerline. */
 .quote-block {
-  width: min(100%, 560px);
+  width: min(100%, 720px);
   text-align: center;
+  margin: auto 0;
 }
+/* The quote is the product: serif, large, with the author set apart by an accent rule. */
 blockquote {
-  font-size: clamp(1.05rem, 2.6vh, 1.6rem);
-  line-height: 1.45;
+  font-family: Georgia, "Times New Roman", "Noto Serif", serif;
+  font-size: clamp(1.4rem, 1rem + 1.4vw, 2.3rem);
+  line-height: 1.35;
   font-style: italic;
-  margin: 0 0 clamp(0.25rem, 1vh, 0.7rem);
+  text-wrap: balance;
+  margin: 0 0 clamp(0.6rem, 1.6vh, 1rem);
 }
 .quote-author {
-  font-size: clamp(0.8rem, 1.8vh, 1.05rem);
-  font-weight: 500;
-  color: var(--muted);
+  display: inline-block;
+  padding-top: 0.7rem;
+  border-top: 2px solid var(--accent);
+  font-size: clamp(0.9rem, 2vh, 1.1rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text);
 }
+.quote-author:empty { display: none; }
 
 /* ---------------- footer / sources ---------------- */
 .sourcebar {
@@ -107,13 +121,15 @@ blockquote {
   font-size: 0.8rem;
 }
 .footnote { color: var(--muted); }
-#quote-source { color: #6ea8ff; text-decoration: none; }
+#quote-source { color: #8bb8ff; text-decoration: none; }
+.lang-toggle:focus-visible, #quote-source:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 #quote-source:hover { text-decoration: underline; }
 
 /* ---------------- small screens ---------------- */
 @media (max-width: 480px) {
-  .media { max-height: 40vh; }
+  .media { max-height: 30vh; border-radius: 10px; }
   .quote-block { width: 100%; }
-  blockquote { font-size: clamp(1rem, 2.4vh, 1.3rem); }
+  blockquote { font-size: clamp(1.3rem, 5.4vw, 1.7rem); }
   .sourcebar { gap: 0.8rem; font-size: 0.72rem; flex-wrap: wrap; }
-}
+}
