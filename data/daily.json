@@ -1,16 +1,19 @@
 {
-  "date": "2026-10-12",
-  "id": "q9ae6afba",
-  "theme": "innovation",
-  "en": "The best revenge is not to be like your enemy.",
-  "ru": "Лучшая месть — не уподобляться своему врагу.",
-  "author": "Marcus Aurelius",
-  "image": "https://picsum.photos/seed/20261012/1200/800",
-  "source": "https://en.wikiquote.org/wiki/Marcus_Aurelius",
-  "news_score": 14,
+  "date": "2026-10-13",
+  "id": "q21190a06",
+  "theme": "service",
+  "en": "The best way to find yourself is to lose yourself in the service of others.",
+  "ru": "Лучший способ найти себя — потерять себя в служении другим.",
+  "author": "Mahatma Gandhi",
+  "image": "https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTB8fGhlbHBpbmclMjBoYW5kcyUyMHRlYW13b3JrfGVufDB8MHx8fDE3OTE4Mzg5MjV8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/mahatma_gandhi_109082",
+  "news_score": 2,
   "news_sample": [
-    "ai",
-    "startup",
-    "quantum"
-  ]
+    "service",
+    "impact"
+  ],
+  "photo": {
+    "name": "Toa Heftiba",
+    "link": "https://unsplash.com/@heftiba?utm_source=daily_motivation&utm_medium=referral"
+  }
 }
