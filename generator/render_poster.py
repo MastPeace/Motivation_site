@@ -160,6 +160,8 @@ def render(entry, out_path):
 
     # --- footnote pinned to the bottom ---
     foot = "Daily Motivation Quote"
+    if entry.get("photo", {}).get("name"):
+        foot += f" · Photo: {entry['photo']['name']} / Unsplash"
     fw = draw.textlength(foot, font=fonts["footnote"])
     draw.text(((SIZE[0] - fw) // 2, SIZE[1] - 70), foot, font=fonts["footnote"], fill=MUTED)
 

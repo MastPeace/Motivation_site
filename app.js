@@ -11,6 +11,7 @@
       switch: "RU",
       themePrefix: "",
       footnote: "A new quote every day — matched to the news.",
+      photoBy: "Photo:",
       share: "Share",
       copied: "Copied ✓",
       archive: "Archive",
@@ -21,6 +22,7 @@
       switch: "EN",
       themePrefix: "",
       footnote: "Новая цитата каждый день — по мотивам новостей.",
+      photoBy: "Фото:",
       share: "Поделиться",
       copied: "Скопировано ✓",
       archive: "Архив",
@@ -45,6 +47,7 @@
       el("quote-text").textContent = e[state.lang] || e.en;
       el("quote-author").textContent = "— " + (e.author || "");
       renderSource(e);
+      renderPhotoCredit(e);
     }
   }
 
@@ -58,6 +61,15 @@
     a.href = entry.source;
     a.style.display = "";
     a.textContent = i18n[state.lang].sourcePrefix + " " + (SOURCE_NAMES[host] || host.replace(/^www\./, ""));
+  }
+
+  function renderPhotoCredit(entry) {
+    var a = el("photo-credit");
+    var p = entry.photo;
+    if (!p || !p.name) { a.style.display = "none"; return; }
+    a.href = p.link || "https://unsplash.com/?utm_source=daily_motivation&utm_medium=referral";
+    a.textContent = i18n[state.lang].photoBy + " " + p.name + " / Unsplash";
+    a.style.display = "";
   }
 
   function renderTheme(theme) {

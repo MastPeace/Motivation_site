@@ -128,7 +128,12 @@ def select_quote(quotes, history, theme, rng):
     return rng.choice(pool)
 
 
+UTM = "utm_source=daily_motivation&utm_medium=referral"
+
+
 def image_url(theme, rng, unsplash_key=None, date=None):
+    """Return (url, photo_meta). photo_meta is None for the Picsum fallback, else
+    {"name","link","download"} for Unsplash attribution + download tracking."""
     q = theme.get("unsplash_query", theme["name"])
     if unsplash_key:
         url = "https://api.unsplash.com/search/photos?query={}&per_page=15&orientation=landscape&client_id={}".format(
@@ -141,13 +146,32 @@ def image_url(theme, rng, unsplash_key=None, date=None):
             if photos:
                 pick = rng.choice(photos)
                 u = pick["urls"]
-                download = pick.get("links", {}).get("download_location")
-                return u.get("raw", u.get("regular")), download
+                raw = u.get("raw")
+                src = raw + ("&" if "?" in raw else "?") + "w=1200&h=800&fit=crop&q=80" if raw else u.get("regular")
+                user = pick.get("user", {})
+                meta = {
+                    "name": user.get("name", ""),
+                    "link": (user.get("links", {}).get("html", "https://unsplash.com") + "?" + UTM),
+                    "download": pick.get("links", {}).get("download_location"),
+                }
+                return src, meta
         except Exception as e:
-            log(f"unsplash failed: {e}")
+            log(f"unsplash failed: {type(e).__name__}")  # never log the URL: it contains the key
     # fallback: seeded random Picsum photo (stable per date)
     seed = ds_of_date((date or datetime.date.today().isoformat()))
     return f"https://picsum.photos/seed/{seed}/1200/800", None
+
+
+def track_download(meta, unsplash_key):
+    """Unsplash API guideline: ping download_location when a photo is used."""
+    if not (meta and meta.get("download") and unsplash_key):
+        return
+    try:
+        sep = "&" if "?" in meta["download"] else "?"
+        req = urllib.request.Request(f"{meta['download']}{sep}client_id={unsplash_key}", headers={"User-Agent": USER_AGENT})
+        urllib.request.urlopen(req, timeout=15).read()
+    except Exception as e:
+        log(f"unsplash download ping failed: {type(e).__name__}")
 
 
 def moscow_today():
@@ -179,7 +203,8 @@ def main():
     theme_obj = next((t for t in themes if t["name"] == theme), themes[0] if themes else {})
 
     quote = select_quote(quotes, history[-args.cooldown:], theme, rng)
-    img, download_loc = image_url(theme_obj, rng, os.environ.get("UNSPLASH_ACCESS_KEY"), date)
+    key = os.environ.get("UNSPLASH_ACCESS_KEY")
+    img, photo = image_url(theme_obj, rng, key, date)
 
     entry = {
         "date": date,
@@ -193,8 +218,9 @@ def main():
         "news_score": score,
         "news_sample": sample,
     }
-    if download_loc:
-        entry["unsplash_ack"] = download_loc  # used in a post-run to acknowledge Unsplash (toS)
+    if photo:
+        entry["photo"] = {"name": photo["name"], "link": photo["link"]}
+        track_download(photo, key)
 
     save_json(DAILY_PATH, entry)
     history.append({"date": date, "id": quote["id"], "theme": theme})

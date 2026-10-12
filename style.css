@@ -121,10 +121,10 @@ blockquote {
   font-size: 0.8rem;
 }
 .footnote { color: var(--muted); }
-#quote-source { color: #8bb8ff; text-decoration: none; }
+#quote-source, #photo-credit { color: #8bb8ff; text-decoration: none; }
 .lang-toggle:focus-visible, #quote-source:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
-#quote-source:hover { text-decoration: underline; }
+#quote-source:hover, #photo-credit:hover { text-decoration: underline; }
 
 /* ---------------- small screens ---------------- */
 @media (max-width: 480px) {
