@@ -29,7 +29,7 @@ F_UI = [str(ASSETS / "Manrope[wght].ttf"), f"{FONT_DIR}/dejavu/DejaVuSans.ttf", 
 MARGIN = 60
 CARD_PAD = 50                      # inner padding of the glass card
 CARD_MAX_TOP = 470                 # card never grows above this y (keeps the photo visible)
-CARD_BOTTOM = SIZE[1] - 110        # card bottom edge (footer lives below it)
+CARD_BOTTOM = SIZE[1] - 88         # card bottom edge (footer lives below it)
 
 
 def font(cands, size, weight=None):
@@ -223,7 +223,7 @@ def render(entry, out_path):
     while draw.textlength(foot, font=ff) > W - 2 * MARGIN and fsize > 16:
         fsize -= 1
         ff = font(F_UI, fsize, 500)
-    draw.text(((W - draw.textlength(foot, font=ff)) / 2, H - 70), foot, font=ff, fill=MUTED)
+    draw.text(((W - draw.textlength(foot, font=ff)) / 2, H - 62), foot, font=ff, fill=MUTED)
 
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     img.convert("RGB").save(out_path, "PNG")
