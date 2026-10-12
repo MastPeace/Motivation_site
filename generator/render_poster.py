@@ -28,7 +28,7 @@ F_UI = [str(ASSETS / "Manrope[wght].ttf"), f"{FONT_DIR}/dejavu/DejaVuSans.ttf", 
 
 MARGIN = 60
 CARD_PAD = 50                      # inner padding of the glass card
-PAD_V = 25                         # vertical inner padding (top and bottom) of the card
+PAD_V = 28                         # vertical inner padding (top and bottom) of the card
 CARD_MAX_TOP = 470                 # card never grows above this y (keeps the photo visible)
 CARD_BOTTOM = SIZE[1] - 88         # card bottom edge (footer lives below it)
 
@@ -147,7 +147,7 @@ def render(entry, out_path):
 
     # --- fit quote inside the glass card ---
     inner_w = W - 2 * MARGIN - 2 * CARD_PAD
-    author_block = 56                              # author line (no rule)
+    author_block = 0                               # author now lives below the card
     max_text_h = CARD_BOTTOM - CARD_MAX_TOP - 2 * PAD_V - author_block
     # the quote sits between typographic quotes (RU uses guillemets); marks are drawn gold
     q_open, q_close = ("\u00ab", "\u00bb") if entry.get("lang") == "ru" else ("\u201c", "\u201d")
@@ -210,21 +210,33 @@ def render(entry, out_path):
         else:
             draw.text((x, y), ln, font=qf, fill=TEXT)
         y += lh
-    y += 14
-    right = card[2] - CARD_PAD
-    af = font(F_UI, 32, 800)
-    spaced(draw, (right, y), author.upper(), af, ACCENT, tracking=3, anchor_right=True)
 
-    # --- footer (shrinks to fit so long photographer names are never clipped) ---
-    foot = "Daily Motivation Quote"
+    # --- bottom strip under the card: author (left, gold) + photo credit (right, muted) ---
+    strip_y = CARD_BOTTOM + 26
+    af = font(F_UI, 28, 800)
+    aw = spaced(draw, (MARGIN, strip_y), author.upper(), af, ACCENT, tracking=3)
+    credit = ""
     if entry.get("photo", {}).get("name"):
-        foot += f" \u00b7 Photo: {entry['photo']['name']} / Unsplash"
-    fsize = 26
-    ff = font(F_UI, fsize, 500)
-    while draw.textlength(foot, font=ff) > W - 2 * MARGIN and fsize > 16:
-        fsize -= 1
-        ff = font(F_UI, fsize, 500)
-    draw.text(((W - draw.textlength(foot, font=ff)) / 2, H - 62), foot, font=ff, fill=MUTED)
+        credit = f"Photo: {entry['photo']['name']} / Unsplash"
+    if credit:
+        csize = 22
+        cf = font(F_UI, csize, 500)
+        room = W - 2 * MARGIN - aw - 40               # never run into the author name
+        while draw.textlength(credit, font=cf) > room and csize > 14:
+            csize -= 1
+            cf = font(F_UI, csize, 500)
+        draw.text((W - MARGIN - draw.textlength(credit, font=cf), strip_y + 6), credit, font=cf, fill=MUTED)
+
+    # --- vertical brand label on the right edge, reads bottom-to-top (tilt head left) ---
+    label = "DAILY MOTIVATION QUOTE"
+    lf = font(F_UI, 20, 700)
+    lw = int(sum(draw.textlength(c, font=lf) for c in label) + 5 * (len(label) - 1)) + 4
+    tile = Image.new("RGBA", (lw, 34), (0, 0, 0, 0))
+    td = ImageDraw.Draw(tile)
+    spaced(td, (3, 5), label, lf, (0, 0, 0, 120), tracking=5)      # soft shadow for bright photos
+    spaced(td, (2, 4), label, lf, MUTED + (255,), tracking=5)
+    tile = tile.rotate(90, expand=True)                            # 90 deg counter-clockwise
+    img.alpha_composite(tile, (W - MARGIN // 2 - tile.width // 2, CARD_BOTTOM - tile.height))
 
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     img.convert("RGB").save(out_path, "PNG")
