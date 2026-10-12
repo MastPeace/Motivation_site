@@ -160,3 +160,6 @@ body.archive { display: block; height: auto; min-height: 100dvh; overflow: auto;
 .archive-item blockquote { font-size: clamp(1.15rem, 1rem + 0.8vw, 1.5rem); margin-bottom: 0.7rem; }
 .archive-item .quote-author { font-size: 0.95rem; }
 .archive-empty { color: var(--muted); text-align: center; padding: 2rem 0; }
+.archive-photo { margin: 0 0 0.9rem; border-radius: 12px; overflow: hidden; background: var(--border); aspect-ratio: 3 / 2; position: relative; }
+.archive-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.archive-credit { position: absolute; right: 0.5rem; bottom: 0.4rem; font-size: 0.7rem; color: #fff; text-decoration: none; background: rgba(0,0,0,.45); padding: 0.1rem 0.45rem; border-radius: 6px; }

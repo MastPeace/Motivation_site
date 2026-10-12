@@ -52,6 +52,26 @@
       a.className = "quote-author";
       a.textContent = "— " + r.quote.author;
       item.appendChild(meta);
+      if (r.image) {
+        var fig = document.createElement("figure");
+        fig.className = "archive-photo";
+        var img = document.createElement("img");
+        img.loading = "lazy";
+        img.alt = "";
+        img.src = r.image.replace("/1200/800", "/800/533");  // smaller for the list
+        img.onerror = function () { fig.style.display = "none"; };
+        fig.appendChild(img);
+        if (r.photo && r.photo.name) {
+          var cr = document.createElement("a");
+          cr.className = "archive-credit";
+          cr.href = r.photo.link;
+          cr.target = "_blank";
+          cr.rel = "noopener";
+          cr.textContent = r.photo.name + " / Unsplash";
+          fig.appendChild(cr);
+        }
+        item.appendChild(fig);
+      }
       item.appendChild(q);
       item.appendChild(a);
       list.appendChild(item);
@@ -74,7 +94,7 @@
         var labels = {};
         (res[2].themes || []).forEach(function (t) { labels[t.name] = { en: t.label_en, ru: t.label_ru }; });
         var rows = res[0].filter(function (h) { return byId[h.id]; })
-          .map(function (h) { return { date: h.date, theme: h.theme, quote: byId[h.id] }; })
+          .map(function (h) { return { date: h.date, theme: h.theme, quote: byId[h.id], image: h.image, photo: h.photo }; })
           .sort(function (a, b) { return a.date < b.date ? 1 : -1; });
         data = { rows: rows, labels: labels };
         render();

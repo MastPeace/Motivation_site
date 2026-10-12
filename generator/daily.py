@@ -223,7 +223,10 @@ def main():
         track_download(photo, key)
 
     save_json(DAILY_PATH, entry)
-    history.append({"date": date, "id": quote["id"], "theme": theme})
+    h_entry = {"date": date, "id": quote["id"], "theme": theme, "image": img}
+    if photo:
+        h_entry["photo"] = entry["photo"]
+    history.append(h_entry)
     save_json(HISTORY_PATH, history[-365:])  # keep a rolling year
 
     log(f"date={date} theme={theme} score={score} quote_id={quote['id']} ({quote['en'][:40]}...) cooldown_window={args.cooldown}d")
