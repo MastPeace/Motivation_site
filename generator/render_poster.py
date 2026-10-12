@@ -146,7 +146,7 @@ def render(entry, out_path):
 
     # --- fit quote inside the glass card ---
     inner_w = W - 2 * MARGIN - 2 * CARD_PAD
-    author_block = 84                              # rule + author
+    author_block = 56                              # author line (no rule)
     max_text_h = CARD_BOTTOM - CARD_MAX_TOP - 2 * CARD_PAD - author_block
     # the quote sits between typographic quotes (RU uses guillemets); marks are drawn gold
     q_open, q_close = ("\u00ab", "\u00bb") if entry.get("lang") == "ru" else ("\u201c", "\u201d")
@@ -192,7 +192,7 @@ def render(entry, out_path):
     spaced(draw, (pill[0] + 28, pill[1] + 15), theme, tf, ACCENT, tracking=4)
     draw.text((dpill[0] + 28, dpill[1] + 13), dt, font=df, fill=TEXT)
 
-    # --- quote lines (opening/closing marks in gold), then rule + author ---
+    # --- quote lines (opening/closing marks in gold), then author ---
     x0 = card[0] + CARD_PAD
     y = card[1] + CARD_PAD
     last = len(lines) - 1
@@ -209,11 +209,10 @@ def render(entry, out_path):
         else:
             draw.text((x, y), ln, font=qf, fill=TEXT)
         y += lh
-    y += 24
+    y += 14
     right = card[2] - CARD_PAD
-    draw.rectangle((right - 90, y, right, y + 4), fill=ACCENT)          # rule, right-aligned
     af = font(F_UI, 32, 800)
-    spaced(draw, (right, y + 24), author.upper(), af, ACCENT, tracking=3, anchor_right=True)
+    spaced(draw, (right, y), author.upper(), af, ACCENT, tracking=3, anchor_right=True)
 
     # --- footer (shrinks to fit so long photographer names are never clipped) ---
     foot = "Daily Motivation Quote"
