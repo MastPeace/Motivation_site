@@ -11,6 +11,9 @@
       switch: "RU",
       themePrefix: "",
       footnote: "A new quote every day — matched to the news.",
+      share: "Share",
+      copied: "Copied ✓",
+      archive: "Archive",
       sourcePrefix: "Source:"
     },
     ru: {
@@ -18,6 +21,9 @@
       switch: "EN",
       themePrefix: "",
       footnote: "Новая цитата каждый день — по мотивам новостей.",
+      share: "Поделиться",
+      copied: "Скопировано ✓",
+      archive: "Архив",
       sourcePrefix: "Источник:"
     }
   };
@@ -76,6 +82,25 @@
     renderTheme(entry.theme);
   }
 
+  function onShare() {
+    var e = state.entry;
+    if (!e) return;
+    var text = "\u201c" + (e[state.lang] || e.en) + "\u201d \u2014 " + (e.author || "");
+    var url = location.href.split("#")[0];
+    if (navigator.share) {
+      navigator.share({ text: text, url: url }).catch(function () {});  // user cancelled: fine
+      return;
+    }
+    var btn = el("share-btn");
+    var done = function () {
+      btn.textContent = i18n[state.lang].copied;
+      setTimeout(function () { btn.textContent = i18n[state.lang].share; }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text + "\n" + url).then(done).catch(function () {});
+    }
+  }
+
   function onLangToggle() {
     state.lang = state.lang === "en" ? "ru" : "en";
     try { localStorage.setItem("dl-lang", state.lang); } catch (e) {}
@@ -89,6 +114,7 @@
     if (!i18n[saved]) saved = /^ru/i.test(navigator.language || "") ? "ru" : "en";
     state.lang = saved;
     el("lang-toggle").addEventListener("click", onLangToggle);
+    el("share-btn").addEventListener("click", onShare);
 
     Promise.all([
       fetch(THEMES_URL, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(function () { return { themes: [] }; }),
