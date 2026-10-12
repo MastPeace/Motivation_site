@@ -21,11 +21,10 @@ ACCENT = (233, 196, 106)          # gold
 TEXT = (244, 246, 250)            # near-white
 MUTED = (178, 184, 200)
 FONT_DIR = "/usr/share/fonts/truetype"
-# (path candidates, first existing wins) - Liberation/DejaVu both cover Cyrillic
-F_SERIF_IT = [f"{FONT_DIR}/liberation/LiberationSerif-Italic.ttf", f"{FONT_DIR}/freefont/FreeSerifItalic.ttf", f"{FONT_DIR}/dejavu/DejaVuSerif.ttf"]
-F_SERIF_BOLD = [f"{FONT_DIR}/liberation/LiberationSerif-Bold.ttf", f"{FONT_DIR}/dejavu/DejaVuSerif-Bold.ttf"]
-F_SANS = [f"{FONT_DIR}/dejavu/DejaVuSans.ttf", f"{FONT_DIR}/liberation/LiberationSans-Regular.ttf"]
-F_SANS_BOLD = [f"{FONT_DIR}/dejavu/DejaVuSans-Bold.ttf", f"{FONT_DIR}/liberation/LiberationSans-Bold.ttf"]
+ASSETS = ROOT / "assets" / "fonts"   # bundled OFL fonts (both cover Latin + Cyrillic)
+# candidate lists: first existing wins, system fonts are the fallback
+F_QUOTE = [str(ASSETS / "PlayfairDisplay-Italic[wght].ttf"), f"{FONT_DIR}/liberation/LiberationSerif-Italic.ttf", f"{FONT_DIR}/freefont/FreeSerifItalic.ttf", f"{FONT_DIR}/dejavu/DejaVuSerif.ttf"]
+F_UI = [str(ASSETS / "Manrope[wght].ttf"), f"{FONT_DIR}/dejavu/DejaVuSans.ttf", f"{FONT_DIR}/liberation/LiberationSans-Regular.ttf"]
 
 MARGIN = 60
 CARD_PAD = 56                      # inner padding of the glass card
@@ -33,11 +32,18 @@ CARD_MAX_TOP = 470                 # card never grows above this y (keeps the ph
 CARD_BOTTOM = SIZE[1] - 110        # card bottom edge (footer lives below it)
 
 
-def font(cands, size):
+def font(cands, size, weight=None):
+    """Load the first available font; for variable fonts pick the weight axis (400-900 etc.)."""
     from PIL import ImageFont
     for c in cands:
         if os.path.exists(c):
-            return ImageFont.truetype(c, size)
+            f = ImageFont.truetype(c, size)
+            if weight is not None:
+                try:
+                    f.set_variation_by_axes([weight])
+                except Exception:
+                    pass  # static font: weight is baked in
+            return f
     return ImageFont.load_default()
 
 
@@ -92,13 +98,15 @@ def glass_pill(img, box, border_rgba):
     return outline(img, box, r, border_rgba)
 
 
-def spaced(draw, xy, text, fnt, fill, tracking=3, anchor_center=False):
+def spaced(draw, xy, text, fnt, fill, tracking=3, anchor_center=False, anchor_right=False):
     """Draw letter-spaced text (PIL has no tracking). Returns the drawn width."""
     widths = [draw.textlength(ch, font=fnt) for ch in text]
     total = sum(widths) + tracking * max(len(text) - 1, 0)
     x, y = xy
     if anchor_center:
         x -= total / 2
+    elif anchor_right:
+        x -= total
     for ch, w in zip(text, widths):
         draw.text((x, y), ch, font=fnt, fill=fill)
         x += w + tracking
@@ -143,7 +151,7 @@ def render(entry, out_path):
     max_text_h = CARD_BOTTOM - CARD_MAX_TOP - 2 * CARD_PAD - mark_h - author_block
     chosen = None
     for size_px in range(76, 29, -2):
-        qf = font(F_SERIF_IT, size_px)
+        qf = font(F_QUOTE, size_px, 500)
         lh = int(size_px * 1.28)
         lines = wrap(quote_text, qf, inner_w, draw)
         if len(lines) * lh <= max_text_h:
@@ -168,12 +176,12 @@ def render(entry, out_path):
     draw = ImageDraw.Draw(img)
 
     # --- top bar: theme pill (left) + date pill (right) ---
-    tf = font(F_SANS_BOLD, 28)
+    tf = font(F_UI, 26, 700)
     theme = entry.get("theme", "").upper()
     tw = sum(draw.textlength(c, font=tf) for c in theme) + 4 * (len(theme) - 1)
     pill = (MARGIN, 58, MARGIN + tw + 56, 120)
     img = glass_pill(img, pill, ACCENT + (170,))
-    df = font(F_SANS, 30)
+    df = font(F_UI, 28, 500)
     dt = entry["date"]
     dw = draw.textlength(dt, font=df)
     dpill = (W - MARGIN - dw - 56, 58, W - MARGIN, 120)
@@ -183,26 +191,27 @@ def render(entry, out_path):
     draw.text((dpill[0] + 28, dpill[1] + 13), dt, font=df, fill=TEXT)
 
     # --- opening quote mark, quote, rule, author ---
-    mf = font(F_SERIF_BOLD, 150)
+    mf = font(F_QUOTE, 170, 800)
     draw.text((card[0] + CARD_PAD - 4, card[1] + CARD_PAD - 42), "\u201c", font=mf, fill=ACCENT)
     y = card[1] + CARD_PAD + mark_h - 18
     for ln in lines:
         draw.text((card[0] + CARD_PAD, y), ln, font=qf, fill=TEXT)
         y += lh
-    y += 22
-    draw.rectangle((card[0] + CARD_PAD, y, card[0] + CARD_PAD + 90, y + 4), fill=ACCENT)
-    af = font(F_SANS_BOLD, 34)
-    spaced(draw, (card[0] + CARD_PAD, y + 24), author.upper(), af, ACCENT, tracking=3)
+    y += 24
+    right = card[2] - CARD_PAD
+    draw.rectangle((right - 90, y, right, y + 4), fill=ACCENT)          # rule, right-aligned
+    af = font(F_UI, 32, 800)
+    spaced(draw, (right, y + 24), author.upper(), af, ACCENT, tracking=3, anchor_right=True)
 
     # --- footer (shrinks to fit so long photographer names are never clipped) ---
     foot = "Daily Motivation Quote"
     if entry.get("photo", {}).get("name"):
         foot += f" \u00b7 Photo: {entry['photo']['name']} / Unsplash"
     fsize = 26
-    ff = font(F_SANS, fsize)
+    ff = font(F_UI, fsize, 500)
     while draw.textlength(foot, font=ff) > W - 2 * MARGIN and fsize > 16:
         fsize -= 1
-        ff = font(F_SANS, fsize)
+        ff = font(F_UI, fsize, 500)
     draw.text(((W - draw.textlength(foot, font=ff)) / 2, H - 70), foot, font=ff, fill=MUTED)
 
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
