@@ -28,6 +28,7 @@ F_UI = [str(ASSETS / "Manrope[wght].ttf"), f"{FONT_DIR}/dejavu/DejaVuSans.ttf", 
 
 MARGIN = 60
 CARD_PAD = 50                      # inner padding of the glass card
+PAD_V = 25                         # vertical inner padding (top and bottom) of the card
 CARD_MAX_TOP = 470                 # card never grows above this y (keeps the photo visible)
 CARD_BOTTOM = SIZE[1] - 88         # card bottom edge (footer lives below it)
 
@@ -147,7 +148,7 @@ def render(entry, out_path):
     # --- fit quote inside the glass card ---
     inner_w = W - 2 * MARGIN - 2 * CARD_PAD
     author_block = 56                              # author line (no rule)
-    max_text_h = CARD_BOTTOM - CARD_MAX_TOP - 2 * CARD_PAD - author_block
+    max_text_h = CARD_BOTTOM - CARD_MAX_TOP - 2 * PAD_V - author_block
     # the quote sits between typographic quotes (RU uses guillemets); marks are drawn gold
     q_open, q_close = ("\u00ab", "\u00bb") if entry.get("lang") == "ru" else ("\u201c", "\u201d")
     quote_text = f"{q_open}{quote_text.strip()}{q_close}"
@@ -162,7 +163,7 @@ def render(entry, out_path):
         chosen = (qf, lines, lh)
     qf, lines, lh = chosen
     text_h = len(lines) * lh
-    card_h = 2 * CARD_PAD + text_h + author_block
+    card_h = 2 * PAD_V + text_h + author_block
     card_top = max(CARD_MAX_TOP, CARD_BOTTOM - card_h)
     card_top = CARD_BOTTOM - card_h if card_h > CARD_BOTTOM - CARD_MAX_TOP else card_top
     card = (MARGIN, card_top, W - MARGIN, CARD_BOTTOM)
@@ -194,7 +195,7 @@ def render(entry, out_path):
 
     # --- quote lines (opening/closing marks in gold), then author ---
     x0 = card[0] + CARD_PAD
-    y = card[1] + CARD_PAD
+    y = card[1] + PAD_V
     last = len(lines) - 1
     for i, ln in enumerate(lines):
         x = x0
