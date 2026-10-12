@@ -140,6 +140,9 @@ blockquote {
   border-radius: 8px; padding: 0.35rem 0.9rem; font: inherit; font-size: 0.85rem;
   text-decoration: none; cursor: pointer; transition: .2s;
 }
+.top-actions { display: flex; align-items: center; gap: 0.5rem; }
+.icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 2.1rem; height: 2.1rem; padding: 0; }
+.icon-btn.done { color: var(--accent); border-color: var(--accent); }
 .action-btn:hover { color: var(--text); border-color: var(--muted); }
 .action-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 

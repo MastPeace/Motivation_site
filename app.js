@@ -39,6 +39,10 @@
     var t = i18n[state.lang];
     var els = document.querySelectorAll("[data-i18n]");
     els.forEach(function (e) { e.textContent = t[e.getAttribute("data-i18n")] || e.textContent; });
+    [["share-btn", t.share], ["archive-btn", t.archive]].forEach(function (p) {
+      var b = el(p[0]);
+      if (b) { b.setAttribute("aria-label", p[1]); b.title = p[1]; }
+    });
     document.documentElement.setAttribute("lang", state.lang);
     // re-render dynamic bits
     renderTheme(state.entry ? state.entry.theme : null);
@@ -105,8 +109,9 @@
     }
     var btn = el("share-btn");
     var done = function () {
-      btn.textContent = i18n[state.lang].copied;
-      setTimeout(function () { btn.textContent = i18n[state.lang].share; }, 1800);
+      btn.title = i18n[state.lang].copied;
+      btn.classList.add("done");
+      setTimeout(function () { btn.title = i18n[state.lang].share; btn.classList.remove("done"); }, 1800);
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text + "\n" + url).then(done).catch(function () {});

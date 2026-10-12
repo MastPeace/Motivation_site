@@ -8,6 +8,7 @@
   <meta property="og:title" content="Daily Motivation">
   <meta property="og:description" content="A daily motivational quote, matched to what the world is talking about today.">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
   <header class="topbar">
@@ -15,7 +16,11 @@
       <span class="dot"></span>
       <span id="brand-label" data-i18n="brand">Daily Motivation</span>
     </div>
-    <button id="lang-toggle" class="lang-toggle" title="Switch language" data-i18n="switch">RU</button>
+    <div class="top-actions">
+      <button id="share-btn" class="action-btn icon-btn" type="button" aria-label="Share" title="Share"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg></button>
+      <a id="archive-btn" class="action-btn icon-btn" href="archive.html" aria-label="Archive" title="Archive"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg></a>
+      <button id="lang-toggle" class="lang-toggle" title="Switch language" data-i18n="switch">RU</button>
+    </div>
   </header>
 
   <main class="stage">
@@ -31,10 +36,6 @@
     <div class="quote-block">
       <blockquote id="quote-text">&hellip;</blockquote>
       <p class="quote-author" id="quote-author"></p>
-      <div class="actions">
-        <button id="share-btn" class="action-btn" type="button" data-i18n="share">Share</button>
-        <a class="action-btn" href="archive.html" data-i18n="archive">Archive</a>
-      </div>
     </div>
   </main>
 
