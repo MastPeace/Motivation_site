@@ -11,14 +11,14 @@
       switch: "RU",
       themePrefix: "",
       footnote: "A new quote every day — matched to the news.",
-      sourceMissing: "source"
+      sourcePrefix: "Source:"
     },
     ru: {
       brand: "Мотивация дня",
       switch: "EN",
       themePrefix: "",
       footnote: "Новая цитата каждый день — по мотивам новостей.",
-      sourceMissing: "источник"
+      sourcePrefix: "Источник:"
     }
   };
 
@@ -42,15 +42,16 @@
     }
   }
 
+  var SOURCE_NAMES = { "en.wikiquote.org": "Wikiquote", "www.brainyquote.com": "BrainyQuote" };
+
   function renderSource(entry) {
-    if (entry.source) {
-      var a = el("quote-source");
-      a.href = entry.source;
-      a.style.display = "";
-      a.textContent = entry.source.replace(/^https?:\/\//, "").replace(/\/.*$/, "");
-    } else {
-      el("quote-source").style.display = "none";
-    }
+    var a = el("quote-source");
+    if (!entry.source) { a.style.display = "none"; return; }
+    var host = "";
+    try { host = new URL(entry.source).hostname; } catch (e) { a.style.display = "none"; return; }
+    a.href = entry.source;
+    a.style.display = "";
+    a.textContent = i18n[state.lang].sourcePrefix + " " + (SOURCE_NAMES[host] || host.replace(/^www\./, ""));
   }
 
   function renderTheme(theme) {
