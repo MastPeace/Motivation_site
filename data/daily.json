@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-11",
-  "id": "q9b588cfb",
+  "date": "2026-10-12",
+  "id": "q9ae6afba",
   "theme": "innovation",
-  "en": "Whether you think you can or you think you can't — you're right.",
-  "ru": "Думаешь ли ты, что сможешь, или думаешь, что нет, — в обоих случаях ты прав.",
-  "author": "Henry Ford",
-  "image": "https://picsum.photos/seed/20261011/1200/800",
-  "source": "https://www.brainyquote.com/quotes/henry_ford_100910",
-  "news_score": 16,
+  "en": "The best revenge is not to be like your enemy.",
+  "ru": "Лучшая месть — не уподобляться своему врагу.",
+  "author": "Marcus Aurelius",
+  "image": "https://picsum.photos/seed/20261012/1200/800",
+  "source": "https://en.wikiquote.org/wiki/Marcus_Aurelius",
+  "news_score": 14,
   "news_sample": [
     "ai",
     "startup",
-    "space"
+    "quantum"
   ]
 }
