@@ -27,7 +27,7 @@ F_QUOTE = [str(ASSETS / "PlayfairDisplay-Italic[wght].ttf"), f"{FONT_DIR}/libera
 F_UI = [str(ASSETS / "Manrope[wght].ttf"), f"{FONT_DIR}/dejavu/DejaVuSans.ttf", f"{FONT_DIR}/liberation/LiberationSans-Regular.ttf"]
 
 MARGIN = 60
-CARD_PAD = 56                      # inner padding of the glass card
+CARD_PAD = 50                      # inner padding of the glass card
 CARD_MAX_TOP = 470                 # card never grows above this y (keeps the photo visible)
 CARD_BOTTOM = SIZE[1] - 110        # card bottom edge (footer lives below it)
 
@@ -146,9 +146,11 @@ def render(entry, out_path):
 
     # --- fit quote inside the glass card ---
     inner_w = W - 2 * MARGIN - 2 * CARD_PAD
-    mark_h = 90                                    # room for the big opening quote mark
-    author_block = 96                              # rule + author
-    max_text_h = CARD_BOTTOM - CARD_MAX_TOP - 2 * CARD_PAD - mark_h - author_block
+    author_block = 84                              # rule + author
+    max_text_h = CARD_BOTTOM - CARD_MAX_TOP - 2 * CARD_PAD - author_block
+    # the quote sits between typographic quotes (RU uses guillemets); marks are drawn gold
+    q_open, q_close = ("\u00ab", "\u00bb") if entry.get("lang") == "ru" else ("\u201c", "\u201d")
+    quote_text = f"{q_open}{quote_text.strip()}{q_close}"
     chosen = None
     for size_px in range(76, 29, -2):
         qf = font(F_QUOTE, size_px, 500)
@@ -160,7 +162,7 @@ def render(entry, out_path):
         chosen = (qf, lines, lh)
     qf, lines, lh = chosen
     text_h = len(lines) * lh
-    card_h = 2 * CARD_PAD + mark_h + text_h + author_block
+    card_h = 2 * CARD_PAD + text_h + author_block
     card_top = max(CARD_MAX_TOP, CARD_BOTTOM - card_h)
     card_top = CARD_BOTTOM - card_h if card_h > CARD_BOTTOM - CARD_MAX_TOP else card_top
     card = (MARGIN, card_top, W - MARGIN, CARD_BOTTOM)
@@ -190,12 +192,22 @@ def render(entry, out_path):
     spaced(draw, (pill[0] + 28, pill[1] + 15), theme, tf, ACCENT, tracking=4)
     draw.text((dpill[0] + 28, dpill[1] + 13), dt, font=df, fill=TEXT)
 
-    # --- opening quote mark, quote, rule, author ---
-    mf = font(F_QUOTE, 170, 800)
-    draw.text((card[0] + CARD_PAD - 4, card[1] + CARD_PAD - 42), "\u201c", font=mf, fill=ACCENT)
-    y = card[1] + CARD_PAD + mark_h - 18
-    for ln in lines:
-        draw.text((card[0] + CARD_PAD, y), ln, font=qf, fill=TEXT)
+    # --- quote lines (opening/closing marks in gold), then rule + author ---
+    x0 = card[0] + CARD_PAD
+    y = card[1] + CARD_PAD
+    last = len(lines) - 1
+    for i, ln in enumerate(lines):
+        x = x0
+        if i == 0 and ln.startswith(q_open):
+            draw.text((x, y), q_open, font=qf, fill=ACCENT)
+            x += draw.textlength(q_open, font=qf)
+            ln = ln[len(q_open):]
+        if i == last and ln.endswith(q_close):
+            body = ln[:-len(q_close)]
+            draw.text((x, y), body, font=qf, fill=TEXT)
+            draw.text((x + draw.textlength(body, font=qf), y), q_close, font=qf, fill=ACCENT)
+        else:
+            draw.text((x, y), ln, font=qf, fill=TEXT)
         y += lh
     y += 24
     right = card[2] - CARD_PAD
