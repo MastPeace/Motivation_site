@@ -108,13 +108,14 @@ def render(entry, out_path):
         draw.rectangle((IMG_AREA[0], IMG_AREA[1], IMG_AREA[2], IMG_AREA[3]),
                        outline=ACCENT, width=3)
 
-    # --- headline text over the photo (lower strip of IMG_AREA) ---
-    # theme tag top-left inside photo
+    # --- theme + date over the photo, on a translucent dark band so they stay readable ---
     theme = entry.get("theme", "").upper()
-    draw.text((IMG_AREA[0] + 26, IMG_AREA[1] + 18), theme, font=fonts["theme"], fill=ACCENT)
     date_txt = entry["date"]
+    band = Image.new("RGBA", (IMG_AREA[2] - IMG_AREA[0], 84), (10, 12, 20, 150))
+    img.paste(band, (IMG_AREA[0], IMG_AREA[1]), band)
+    draw.text((IMG_AREA[0] + 26, IMG_AREA[1] + 18), theme, font=fonts["theme"], fill=ACCENT)
     draw.text((IMG_AREA[2] - draw.textlength(date_txt, font=fonts["date"]) - 26,
-               IMG_AREA[1] + 18), date_txt, font=fonts["date"], fill=MUTED)
+               IMG_AREA[1] + 20), date_txt, font=fonts["date"], fill=TEXT)
 
     # --- quote block (auto-fit: shrink font until whole quote+author fit) ---
     lang = entry.get("lang", "en")
@@ -162,8 +163,12 @@ def render(entry, out_path):
     foot = "Daily Motivation Quote"
     if entry.get("photo", {}).get("name"):
         foot += f" · Photo: {entry['photo']['name']} / Unsplash"
-    fw = draw.textlength(foot, font=fonts["footnote"])
-    draw.text(((SIZE[0] - fw) // 2, SIZE[1] - 70), foot, font=fonts["footnote"], fill=MUTED)
+    foot_font, fsize = fonts["footnote"], 36
+    while draw.textlength(foot, font=foot_font) > SIZE[0] - 120 and fsize > 18:  # shrink to fit
+        fsize -= 2
+        foot_font = ImageFont.truetype(FONT_DIR, fsize)
+    fw = draw.textlength(foot, font=foot_font)
+    draw.text(((SIZE[0] - fw) // 2, SIZE[1] - 70), foot, font=foot_font, fill=MUTED)
 
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     img.save(out_path, "PNG")
