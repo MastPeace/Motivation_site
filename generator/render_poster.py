@@ -211,21 +211,19 @@ def render(entry, out_path):
             draw.text((x, y), ln, font=qf, fill=TEXT)
         y += lh
 
-    # --- bottom strip under the card: author (left, gold) + photo credit (right, muted) ---
+    # --- bottom strip under the card: photo credit (left, muted) + quote author (right, gold) ---
     strip_y = CARD_BOTTOM + 26
     af = font(F_UI, 28, 800)
-    aw = spaced(draw, (MARGIN, strip_y), author.upper(), af, ACCENT, tracking=3)
-    credit = ""
+    aw = spaced(draw, (W - MARGIN, strip_y), author.upper(), af, ACCENT, tracking=3, anchor_right=True)
     if entry.get("photo", {}).get("name"):
         credit = f"Photo: {entry['photo']['name']} / Unsplash"
-    if credit:
         csize = 22
         cf = font(F_UI, csize, 500)
         room = W - 2 * MARGIN - aw - 40               # never run into the author name
         while draw.textlength(credit, font=cf) > room and csize > 14:
             csize -= 1
             cf = font(F_UI, csize, 500)
-        draw.text((W - MARGIN - draw.textlength(credit, font=cf), strip_y + 6), credit, font=cf, fill=MUTED)
+        draw.text((MARGIN, strip_y + 6), credit, font=cf, fill=MUTED)
 
     # --- vertical brand label on the right edge, reads bottom-to-top (tilt head left) ---
     label = "DAILY MOTIVATION QUOTE"
