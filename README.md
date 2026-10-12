@@ -12,11 +12,14 @@ commits it, and deploys to GitHub Pages.
 
 1. Fetch world headlines from Google News RSS (keyless).
 2. Score them against a **theme whitelist** (`data/themes.json`) to pick the day's theme
-   — e.g. perseverance, change, courage, rest, hope, unity, innovation…
+   — e.g. perseverance, change, courage, rest, hope, unity, innovation… Matching is
+   word-boundary based (short keywords like `ai` must be a whole word; longer ones are stems),
+   each headline counts once per keyword, and themes used in the last 3 days are down-weighted
+   so one theme can't dominate.
 3. Choose a quote from `data/quotes.json` tagged with that theme, **excluding anything
    used in the last 30 days** (cooldown), deterministic per date.
-4. Fetch a correlated image: Unsplash by theme if `UNSPLASH_ACCESS_KEY` is set, else a
-   stable Picsum placeholder.
+4. Image: Unsplash by theme if `UNSPLASH_ACCESS_KEY` is set. Without a key it is a seeded
+   Picsum photo — stable per date but **not** related to the theme.
 5. Write `data/daily.json` + append to `data/history.json`, commit, deploy.
 
 ## Layout
@@ -32,6 +35,18 @@ data/history.json       rolling archive for the 30-day cooldown (generated)
 generator/daily.py      the daily generator (stdlib only)
 .github/workflows/daily.yml  nightly run + deploy
 ```
+
+## Tests
+
+```bash
+python3 -m unittest discover -s tests
+```
+
+## Telegram poster
+
+`telegram/send_daily.sh` (run by a Hermes cron at 09:00 MSK) pulls `daily.json` from Pages into a
+temp file, **refuses to post if its date isn't today (Moscow)**, renders the poster and posts it
+silently. Needs `TELEGRAM_BOT_TOKEN` and `MOTIVATION_TG_CHAT_ID` in `~/.hermes/.env`.
 
 ## Local run
 

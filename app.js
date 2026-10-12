@@ -23,7 +23,7 @@
   };
 
   var themeLabels = {}; // theme name -> {en, ru}
-  var state = { lang: "en" };
+  var state = { lang: "en", entry: null };
 
   function el(id) { return document.getElementById(id); }
 
@@ -67,6 +67,8 @@
     el("quote-text").textContent = entry[state.lang] || entry.en;
     el("quote-author").textContent = "— " + (entry.author || "");
     var img = el("quote-image");
+    img.onerror = function () { img.style.display = "none"; };  // broken photo: hide, keep the quote
+    img.style.display = "";
     img.src = entry.image || "";
     img.alt = "";
     renderSource(entry);
@@ -81,23 +83,28 @@
   }
 
   function init() {
-    try { var saved = localStorage.getItem("dl-lang"); if (saved) state.lang = saved; } catch (e) {}
+    // saved choice wins; otherwise follow the browser language. Ignore unknown values.
+    var saved = null;
+    try { saved = localStorage.getItem("dl-lang"); } catch (e) {}
+    if (!i18n[saved]) saved = /^ru/i.test(navigator.language || "") ? "ru" : "en";
+    state.lang = saved;
     el("lang-toggle").addEventListener("click", onLangToggle);
 
     Promise.all([
-      fetch(THEMES_URL).then(function (r) { return r.json(); }).catch(function () { return { themes: [] }; }),
-      fetch(DAILY_URL).then(function (r) { return r.json(); }).catch(function () { return null; })
+      fetch(THEMES_URL, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(function () { return { themes: [] }; }),
+      fetch(DAILY_URL, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(function () { return null; })
     ]).then(function (res) {
       var themes = res[0] && res[0].themes ? res[0].themes : [];
       themes.forEach(function (t) { themeLabels[t.name] = { en: t.label_en, ru: t.label_ru }; });
       var entry = res[1];
-      applyLanguage();
       if (!entry) {
-        el("quote-text").textContent = "😔 Could not load today's quote.";
+        applyLanguage();
+        el("quote-text").textContent = state.lang === "ru" ? "😔 Не удалось загрузить цитату дня." : "😔 Could not load today's quote.";
         el("quote-text").style.fontStyle = "normal";
         return;
       }
       renderEntry(entry);
+      applyLanguage();
     });
   }
 

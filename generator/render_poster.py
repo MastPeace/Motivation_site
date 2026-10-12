@@ -49,8 +49,10 @@ def fetch_image(url, dst):
     if os.path.exists(dst):
         return dst
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (motivation-poster/1.0)"})
-    with urllib.request.urlopen(req, timeout=40) as r, open(dst, "wb") as f:
+    tmp = f"{dst}.part"  # download then rename, so a failed fetch never leaves a corrupt cache file
+    with urllib.request.urlopen(req, timeout=40) as r, open(tmp, "wb") as f:
         f.write(r.read())
+    os.replace(tmp, dst)
     return dst
 
 
@@ -86,8 +88,8 @@ def render(entry, out_path):
     fonts = load_fonts()
 
     # --- photo ---
-    img_path = fetch_image(entry["image"], ROOT / "data" / "_img" / f"{entry['date']}.jpg")
     try:
+        img_path = fetch_image(entry["image"], ROOT / "data" / "_img" / f"{entry['date']}.jpg")
         photo = Image.open(img_path).convert("RGB")
         # cover-crop into IMG_AREA (keeps proportions, no distortion)
         box_w, box_h = IMG_AREA[2] - IMG_AREA[0], IMG_AREA[3] - IMG_AREA[1]
@@ -116,7 +118,7 @@ def render(entry, out_path):
 
     # --- quote block (auto-fit: shrink font until whole quote+author fit) ---
     lang = entry.get("lang", "en")
-    quote_text = entry[lang]
+    quote_text = entry.get(lang) or entry["en"]
     author = entry.get("author", "")
     max_qw = SIZE[0] - 160
     region_top = IMG_AREA[3] + 52          # start of the text region below the photo
@@ -171,12 +173,13 @@ def main():
     ap.add_argument("--date", default=None)
     ap.add_argument("--out", default=None)
     ap.add_argument("--lang", default="en", choices=["en", "ru"])
+    ap.add_argument("--daily", default=str(DAILY), help="path to a daily.json (default: data/daily.json)")
     args = ap.parse_args()
 
-    entry = json.load(open(DAILY))
+    with open(args.daily, encoding="utf-8") as f:
+        entry = json.load(f)
     if args.date and entry.get("date") != args.date:
-        # allow rendering a specific date from history if present
-        print(f"[render] daily.json is {entry.get('date')}, --date {args.date} ignored (no archive yet)", file=sys.stderr)
+        sys.exit(f"[render] {args.daily} is for {entry.get('date')}, not {args.date}")
     entry["lang"] = args.lang
     date = entry.get("date", "today")
     out = args.out or str(ROOT / "data" / f"poster_{date}.png")

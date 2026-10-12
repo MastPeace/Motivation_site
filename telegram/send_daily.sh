@@ -23,10 +23,12 @@ ROOT="${MOTIVATION_REPO:-/home/vovka/work/Motivation_site}"
 if [ -f "$HERMES_HOME/.env" ]; then
   set -a; source "$HERMES_HOME/.env"; set +a
 fi
+# Never post a token-less request
+: "${TELEGRAM_BOT_TOKEN:?TELEGRAM_BOT_TOKEN not set (put it in ~/.hermes/.env)}"
 
 CHAT_ID="${MOTIVATION_TG_CHAT_ID:-}"
 THREAD="${MOTIVATION_TG_THREAD:-1}"
-LANG="${MOTIVATION_LANG:-en}"
+POSTER_LANG="${MOTIVATION_LANG:-en}"
 PAGES_BASE="${MOTIVATION_PAGES_BASE:-https://mastpeace.github.io/Motivation_site}"
 
 if [ -z "$CHAT_ID" ]; then
@@ -34,15 +36,26 @@ if [ -z "$CHAT_ID" ]; then
   exit 1
 fi
 
-# --- 1. sync today's pick from Pages (non-fatal) ---
-if curl -fsS -m 30 "$PAGES_BASE/data/daily.json" -o "$ROOT/data/daily.json" 2>/dev/null; then
-  echo "Synced daily.json from Pages: $(python3 -c "import json;print(json.load(open('$ROOT/data/daily.json')).get('date','?'))" 2>/dev/null || echo '?')"
+# --- 1. sync today's pick from Pages into a scratch file (keeps the git tree clean) ---
+DAILY_JSON="$(mktemp "${TMPDIR:-/tmp}/daily.XXXXXX.json")"
+trap 'rm -f "$DAILY_JSON"' EXIT
+TODAY_MSK="$(TZ=Europe/Moscow date +%F)"
+if curl -fsS -m 30 "$PAGES_BASE/data/daily.json" -o "$DAILY_JSON" 2>/dev/null \
+   && python3 -c "import json,sys;json.load(open(sys.argv[1]))" "$DAILY_JSON" 2>/dev/null; then
+  echo "Synced daily.json from Pages"
 else
   echo "WARN: could not reach Pages, using local data/daily.json" >&2
+  cp "$ROOT/data/daily.json" "$DAILY_JSON"
+fi
+# Refuse to re-post a stale quote (Action failed / Pages not yet deployed)
+GOT="$(python3 -c "import json,sys;print(json.load(open(sys.argv[1])).get('date',''))" "$DAILY_JSON")"
+if [ "$GOT" != "$TODAY_MSK" ]; then
+  echo "ERROR: daily.json is for '$GOT', expected '$TODAY_MSK' - not posting a stale quote" >&2
+  exit 2
 fi
 
 # --- 2. render the poster ---
-POSTER="$("$ROOT/venv/bin/python" "$ROOT/generator/render_poster.py" --lang "$LANG")"
+POSTER="$("$ROOT/venv/bin/python" "$ROOT/generator/render_poster.py" --lang "$POSTER_LANG" --daily "$DAILY_JSON" --date "$TODAY_MSK")"
 echo "Rendered: $POSTER"
 
 DATE_TAG="$(basename "$POSTER" .png | sed 's/^poster_//')"
@@ -51,10 +64,11 @@ DATE_TAG="$(basename "$POSTER" .png | sed 's/^poster_//')"
 # Direct Bot API: sendPhoto with disable_notification=true (no notification sound).
 # Uses TELEGRAM_BOT_TOKEN from ~/.hermes/.env — never stored in the repo.
 CAPTION="Quote of the day · ${DATE_TAG}"
-RESP="$("$ROOT/venv/bin/python" - "${TELEGRAM_BOT_TOKEN:-}" "${CHAT_ID}" "${THREAD}" "${POSTER}" "${CAPTION}" <<'PY'
-import sys, json, os, urllib.request, urllib.parse, mimetypes
+RESP="$(TELEGRAM_BOT_TOKEN="$TELEGRAM_BOT_TOKEN" "$ROOT/venv/bin/python" - "${CHAT_ID}" "${THREAD}" "${POSTER}" "${CAPTION}" <<'PY'
+import sys, json, os, urllib.error, urllib.request, mimetypes
 
-token, chat_id, thread, poster, caption = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5]
+token = os.environ["TELEGRAM_BOT_TOKEN"]  # via env, so it never shows up in `ps`
+chat_id, thread, poster, caption = sys.argv[1:5]
 
 boundary = "----MotivationBoundary----"
 with open(poster, "rb") as f:

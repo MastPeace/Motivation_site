@@ -32,7 +32,7 @@
       "name": "rest",
       "label_en": "Rest & balance",
       "label_ru": "Отдых и баланс",
-      "keywords": ["rest", "burnout", "recover", "heal", "balance", "pause", "recharge", "sleep", "recover", "stress", "calm", "serenity"],
+      "keywords": ["rest", "burnout", "recover", "heal", "balance", "pause", "recharge", "sleep", "stress", "calm", "serenity"],
       "unsplash_query": "calm lake sunrise"
     },
     {
@@ -46,7 +46,7 @@
       "name": "hope",
       "label_en": "Hope",
       "label_ru": "Надежда",
-      "keywords": ["hope", "optimism", "future", "possibility", "rebirth", "dawn", "breakthrough", "recovery", "heal forward", "light"],
+      "keywords": ["hope", "optimism", "future", "possibility", "rebirth", "dawn", "breakthrough", "recovery", "heal forward"],
       "unsplash_query": "hope sunrise horizon"
     },
     {
@@ -60,14 +60,14 @@
       "name": "service",
       "label_en": "Service & purpose",
       "label_ru": "Служение",
-      "keywords": ["volunteer", "service", "community", "purpose", "mission", "help", "aid", "rebuild", "contribute", "impact", "meaning"],
+      "keywords": ["volunteer", "service", "community", "purpose", "mission", "help", "rebuild", "contribute", "impact", "meaning"],
       "unsplash_query": "helping hands teamwork"
     },
     {
       "name": "action",
       "label_en": "Action",
       "label_ru": "Действие",
-      "keywords": ["launch", "start", "action", "initiative", "breakthrough", "go", "build", "create", "take first step", "momentum", "move"],
+      "keywords": ["launch", "action", "initiative", "breakthrough", "build", "create", "take first step", "momentum"],
       "unsplash_query": "action leap stairs"
     },
     {
@@ -81,7 +81,7 @@
       "name": "patience",
       "label_en": "Patience",
       "label_ru": "Терпение",
-      "keywords": ["patient", "wait", "timing", "slow", "steady", "overnight", "hurry", "rushed", "long game", "process"],
+      "keywords": ["patient", "wait", "timing", "slow", "steady", "overnight", "hurry", "rushed", "long game"],
       "unsplash_query": "patience tree roots"
     },
     {
