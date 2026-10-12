@@ -16,31 +16,29 @@ ROOT = Path(__file__).resolve().parent.parent
 DAILY = ROOT / "data" / "daily.json"
 
 # --- config (tweak freely) ---------------------------------------------
-SIZE = (1080, 1350)               # portrait 9:12 -> nice for Telegram
-BG_TOP = (17, 20, 30)             # near-black blue
-BG_BOT = (26, 30, 44)
-IMG_AREA = (60, 60, 1020, 660)    # where the photo sits (x0,y0,x1,y1)
+SIZE = (1080, 1350)               # portrait 4:5 -> nice for Telegram
 ACCENT = (233, 196, 106)          # gold
-TEXT = (236, 239, 246)            # near-white
-MUTED = (140, 146, 164)
-FONT_DIR = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
-FONT_BOLD_DIR = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+TEXT = (244, 246, 250)            # near-white
+MUTED = (178, 184, 200)
+FONT_DIR = "/usr/share/fonts/truetype"
+# (path candidates, first existing wins) - Liberation/DejaVu both cover Cyrillic
+F_SERIF_IT = [f"{FONT_DIR}/liberation/LiberationSerif-Italic.ttf", f"{FONT_DIR}/freefont/FreeSerifItalic.ttf", f"{FONT_DIR}/dejavu/DejaVuSerif.ttf"]
+F_SERIF_BOLD = [f"{FONT_DIR}/liberation/LiberationSerif-Bold.ttf", f"{FONT_DIR}/dejavu/DejaVuSerif-Bold.ttf"]
+F_SANS = [f"{FONT_DIR}/dejavu/DejaVuSans.ttf", f"{FONT_DIR}/liberation/LiberationSans-Regular.ttf"]
+F_SANS_BOLD = [f"{FONT_DIR}/dejavu/DejaVuSans-Bold.ttf", f"{FONT_DIR}/liberation/LiberationSans-Bold.ttf"]
+
+MARGIN = 60
+CARD_PAD = 56                      # inner padding of the glass card
+CARD_MAX_TOP = 470                 # card never grows above this y (keeps the photo visible)
+CARD_BOTTOM = SIZE[1] - 110        # card bottom edge (footer lives below it)
 
 
-def load_fonts():
-    from PIL import ImageFont  # imported lazily (inside venv)
-    def f(path, size):
-        try:
-            return ImageFont.truetype(path, size)
-        except Exception:
-            return ImageFont.load_default()
-    return {
-        "theme": f(FONT_BOLD_DIR, 46),
-        "date": f(FONT_DIR, 40),
-        "quote": f(FONT_DIR, 66),
-        "author": f(FONT_BOLD_DIR, 52),
-        "footnote": f(FONT_DIR, 36),
-    }
+def font(cands, size):
+    from PIL import ImageFont
+    for c in cands:
+        if os.path.exists(c):
+            return ImageFont.truetype(c, size)
+    return ImageFont.load_default()
 
 
 def fetch_image(url, dst):
@@ -73,105 +71,142 @@ def wrap(text, font, max_w, draw):
     return lines or [text]
 
 
+def outline(img, box, radius, rgba, width=2):
+    """Alpha-correct outline (drawing RGBA straight onto the image would not blend)."""
+    from PIL import Image, ImageDraw
+    ov = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(ov).rounded_rectangle(box, radius=radius, outline=rgba, width=width)
+    return Image.alpha_composite(img, ov)
+
+
+def glass_pill(img, box, border_rgba):
+    """Frosted capsule: blurred photo underneath, dark tint, thin border."""
+    from PIL import Image, ImageDraw, ImageFilter
+    box = tuple(int(v) for v in box)
+    g = img.crop(box).filter(ImageFilter.GaussianBlur(14))
+    g = Image.alpha_composite(g, Image.new("RGBA", g.size, (12, 15, 24, 120)))
+    m = Image.new("L", g.size, 0)
+    r = g.height // 2
+    ImageDraw.Draw(m).rounded_rectangle((0, 0, g.width - 1, g.height - 1), radius=r, fill=255)
+    img.paste(g, (box[0], box[1]), m)
+    return outline(img, box, r, border_rgba)
+
+
+def spaced(draw, xy, text, fnt, fill, tracking=3, anchor_center=False):
+    """Draw letter-spaced text (PIL has no tracking). Returns the drawn width."""
+    widths = [draw.textlength(ch, font=fnt) for ch in text]
+    total = sum(widths) + tracking * max(len(text) - 1, 0)
+    x, y = xy
+    if anchor_center:
+        x -= total / 2
+    for ch, w in zip(text, widths):
+        draw.text((x, y), ch, font=fnt, fill=fill)
+        x += w + tracking
+    return total
+
+
 def render(entry, out_path):
-    from PIL import Image, ImageDraw, ImageFilter, ImageFont
+    from PIL import Image, ImageDraw, ImageFilter
 
-    # --- background gradient ---
-    img = Image.new("RGB", SIZE)
-    draw = ImageDraw.Draw(img)
-    h = SIZE[1]
-    for y in range(h):
-        t = y / h
-        row = tuple(int(BG_TOP[i] + (BG_BOT[i] - BG_TOP[i]) * t) for i in range(3))
-        draw.line([(0, y), (SIZE[0], y)], fill=row)
-
-    fonts = load_fonts()
-
-    # --- photo ---
+    W, H = SIZE
+    # --- full-bleed photo (cover crop) ---
+    base = Image.new("RGB", SIZE, (17, 20, 30))
     try:
         img_path = fetch_image(entry["image"], ROOT / "data" / "_img" / f"{entry['date']}.jpg")
         photo = Image.open(img_path).convert("RGB")
-        # cover-crop into IMG_AREA (keeps proportions, no distortion)
-        box_w, box_h = IMG_AREA[2] - IMG_AREA[0], IMG_AREA[3] - IMG_AREA[1]
-        scale = max(box_w / photo.width, box_h / photo.height)
+        scale = max(W / photo.width, H / photo.height)
         nw, nh = round(photo.width * scale), round(photo.height * scale)
         photo = photo.resize((nw, nh), Image.LANCZOS)
-        left = (nw - box_w) // 2
-        top = (nh - box_h) // 2
-        photo = photo.crop((left, top, left + box_w, top + box_h))
-        img.paste(photo, (IMG_AREA[0], IMG_AREA[1]))
-        # thin accent border under the photo
-        draw.rectangle((IMG_AREA[0], IMG_AREA[1], IMG_AREA[2], IMG_AREA[3]),
-                       outline=ACCENT, width=3)
+        left, top = (nw - W) // 2, int((nh - H) * 0.35)   # bias crop upward: skies/horizons stay in frame
+        base = photo.crop((left, top, left + W, top + H))
     except Exception as e:
         print(f"[render] photo fallback: {e}", file=sys.stderr)
-        draw.rectangle((IMG_AREA[0], IMG_AREA[1], IMG_AREA[2], IMG_AREA[3]),
-                       outline=ACCENT, width=3)
 
-    # --- theme + date over the photo, on a translucent dark band so they stay readable ---
-    theme = entry.get("theme", "").upper()
-    date_txt = entry["date"]
-    band = Image.new("RGBA", (IMG_AREA[2] - IMG_AREA[0], 84), (10, 12, 20, 150))
-    img.paste(band, (IMG_AREA[0], IMG_AREA[1]), band)
-    draw.text((IMG_AREA[0] + 26, IMG_AREA[1] + 18), theme, font=fonts["theme"], fill=ACCENT)
-    draw.text((IMG_AREA[2] - draw.textlength(date_txt, font=fonts["date"]) - 26,
-               IMG_AREA[1] + 20), date_txt, font=fonts["date"], fill=TEXT)
+    # --- gradient: clear at top, deep dark toward the text area ---
+    grad = Image.new("L", (1, H))
+    for y in range(H):
+        t = max(0.0, (y - H * 0.18) / (H * 0.82))
+        grad.putpixel((0, y), int(235 * (t ** 1.35)))
+    grad = grad.resize((W, H))
+    shade = Image.new("RGB", SIZE, (9, 11, 18))
+    img = Image.composite(shade, base, grad)
+    img = img.convert("RGBA")
+    draw = ImageDraw.Draw(img)
 
-    # --- quote block (auto-fit: shrink font until whole quote+author fit) ---
-    lang = entry.get("lang", "en")
-    quote_text = entry.get(lang) or entry["en"]
+    quote_text = entry.get(entry.get("lang", "en")) or entry["en"]
     author = entry.get("author", "")
-    max_qw = SIZE[0] - 160
-    region_top = IMG_AREA[3] + 52          # start of the text region below the photo
-    region_bottom = SIZE[1] - 96           # stop before the footnote line
 
-    def fit_block():
-        """Find (font_size, q_lines, line_h, block_bottom) that fits the region."""
-        # bounded search: start generous, tighten until it fits
-        best = None
-        for size_px in range(78, 30, -2):
-            qf = ImageFont.truetype(FONT_DIR, size_px)
-            lh = int(size_px * 1.32)
-            lines = wrap(quote_text, qf, max_qw, draw)
-            n = len(lines)
-            author_f = ImageFont.truetype(FONT_BOLD_DIR, max(int(size_px * 0.78), 26))
-            author_h = int(lh * 1.05) + 24
-            block_h = n * lh + author_h
-            if region_top + block_h <= region_bottom:
-                return size_px, qf, lines, lh, author_f, block_h, region_top
-            best = (size_px, qf, lines, lh, author_f, block_h, region_top)
-        return best  # last attempt (very long; still draws as much as fits)
+    # --- fit quote inside the glass card ---
+    inner_w = W - 2 * MARGIN - 2 * CARD_PAD
+    mark_h = 90                                    # room for the big opening quote mark
+    author_block = 96                              # rule + author
+    max_text_h = CARD_BOTTOM - CARD_MAX_TOP - 2 * CARD_PAD - mark_h - author_block
+    chosen = None
+    for size_px in range(76, 29, -2):
+        qf = font(F_SERIF_IT, size_px)
+        lh = int(size_px * 1.28)
+        lines = wrap(quote_text, qf, inner_w, draw)
+        if len(lines) * lh <= max_text_h:
+            chosen = (qf, lines, lh)
+            break
+        chosen = (qf, lines, lh)
+    qf, lines, lh = chosen
+    text_h = len(lines) * lh
+    card_h = 2 * CARD_PAD + mark_h + text_h + author_block
+    card_top = max(CARD_MAX_TOP, CARD_BOTTOM - card_h)
+    card_top = CARD_BOTTOM - card_h if card_h > CARD_BOTTOM - CARD_MAX_TOP else card_top
+    card = (MARGIN, card_top, W - MARGIN, CARD_BOTTOM)
 
-    size_px, qf, qlines, line_h, author_f, block_h, base_y = fit_block()
-    # vertically center the whole block (quote+author) inside the region
-    region_h = region_bottom - region_top
-    top_pad = max(0, (region_h - block_h) // 2)
-    origin_y = region_top + top_pad
+    # --- frosted glass: blurred photo under a dark tint, rounded corners, hairline border ---
+    glass = img.crop(card).filter(ImageFilter.GaussianBlur(26))
+    tint = Image.new("RGBA", glass.size, (12, 15, 24, 150))
+    glass = Image.alpha_composite(glass, tint)
+    mask = Image.new("L", glass.size, 0)
+    ImageDraw.Draw(mask).rounded_rectangle((0, 0, glass.width - 1, glass.height - 1), radius=44, fill=255)
+    img.paste(glass, (card[0], card[1]), mask)
+    img = outline(img, card, 44, (255, 255, 255, 46))
+    draw = ImageDraw.Draw(img)
 
-    for i, ln in enumerate(qlines):
-        w = draw.textlength(ln, font=qf)
-        x = (SIZE[0] - w) // 2
-        draw.text((x, origin_y + i * line_h), ln, font=qf, fill=TEXT)
-    q_bottom = origin_y + len(qlines) * line_h
+    # --- top bar: theme pill (left) + date pill (right) ---
+    tf = font(F_SANS_BOLD, 28)
+    theme = entry.get("theme", "").upper()
+    tw = sum(draw.textlength(c, font=tf) for c in theme) + 4 * (len(theme) - 1)
+    pill = (MARGIN, 58, MARGIN + tw + 56, 120)
+    img = glass_pill(img, pill, ACCENT + (170,))
+    df = font(F_SANS, 30)
+    dt = entry["date"]
+    dw = draw.textlength(dt, font=df)
+    dpill = (W - MARGIN - dw - 56, 58, W - MARGIN, 120)
+    img = glass_pill(img, dpill, (255, 255, 255, 60))
+    draw = ImageDraw.Draw(img)
+    spaced(draw, (pill[0] + 28, pill[1] + 15), theme, tf, ACCENT, tracking=4)
+    draw.text((dpill[0] + 28, dpill[1] + 13), dt, font=df, fill=TEXT)
 
-    # --- author ---
-    author_txt = f"— {author}"
-    aw = draw.textlength(author_txt, font=author_f)
-    draw.text(((SIZE[0] - aw) // 2, q_bottom + 20), author_txt, font=author_f, fill=ACCENT)
+    # --- opening quote mark, quote, rule, author ---
+    mf = font(F_SERIF_BOLD, 150)
+    draw.text((card[0] + CARD_PAD - 4, card[1] + CARD_PAD - 42), "\u201c", font=mf, fill=ACCENT)
+    y = card[1] + CARD_PAD + mark_h - 18
+    for ln in lines:
+        draw.text((card[0] + CARD_PAD, y), ln, font=qf, fill=TEXT)
+        y += lh
+    y += 22
+    draw.rectangle((card[0] + CARD_PAD, y, card[0] + CARD_PAD + 90, y + 4), fill=ACCENT)
+    af = font(F_SANS_BOLD, 34)
+    spaced(draw, (card[0] + CARD_PAD, y + 24), author.upper(), af, ACCENT, tracking=3)
 
-    # --- footnote pinned to the bottom ---
+    # --- footer (shrinks to fit so long photographer names are never clipped) ---
     foot = "Daily Motivation Quote"
     if entry.get("photo", {}).get("name"):
-        foot += f" · Photo: {entry['photo']['name']} / Unsplash"
-    foot_font, fsize = fonts["footnote"], 36
-    while draw.textlength(foot, font=foot_font) > SIZE[0] - 120 and fsize > 18:  # shrink to fit
-        fsize -= 2
-        foot_font = ImageFont.truetype(FONT_DIR, fsize)
-    fw = draw.textlength(foot, font=foot_font)
-    draw.text(((SIZE[0] - fw) // 2, SIZE[1] - 70), foot, font=foot_font, fill=MUTED)
+        foot += f" \u00b7 Photo: {entry['photo']['name']} / Unsplash"
+    fsize = 26
+    ff = font(F_SANS, fsize)
+    while draw.textlength(foot, font=ff) > W - 2 * MARGIN and fsize > 16:
+        fsize -= 1
+        ff = font(F_SANS, fsize)
+    draw.text(((W - draw.textlength(foot, font=ff)) / 2, H - 70), foot, font=ff, fill=MUTED)
 
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
-    img.save(out_path, "PNG")
+    img.convert("RGB").save(out_path, "PNG")
     print(out_path)
 
 
