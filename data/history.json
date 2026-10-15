@@ -196,5 +196,15 @@
       "name": "d kah",
       "link": "https://unsplash.com/@d_kah?utm_source=daily_motivation&utm_medium=referral"
     }
+  },
+  {
+    "date": "2026-10-16",
+    "id": "q061878bc",
+    "theme": "innovation",
+    "image": "https://images.unsplash.com/photo-1689443111384-1cf214df988a?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8OXx8dGVjaG5vbG9neSUyMGFic3RyYWN0JTIwZnV0dXJlfGVufDB8MHx8fDE3OTIxMDc0ODd8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+    "photo": {
+      "name": "Martin Martz",
+      "link": "https://unsplash.com/@martz90?utm_source=daily_motivation&utm_medium=referral"
+    }
   }
 ]
