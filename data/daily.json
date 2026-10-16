@@ -1,20 +1,19 @@
 {
-  "date": "2026-10-16",
-  "id": "q061878bc",
-  "theme": "innovation",
-  "en": "Innovation distinguishes between a leader and a follower.",
-  "ru": "Инновация — вот что отличает лидера от последователя.",
+  "date": "2026-10-17",
+  "id": "qefe11814",
+  "theme": "action",
+  "en": "The only way to do great work is to love what you do.",
+  "ru": "Единственный способ делать великие дела — любить то, что делаешь.",
   "author": "Steve Jobs",
-  "image": "https://images.unsplash.com/photo-1689443111384-1cf214df988a?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8OXx8dGVjaG5vbG9neSUyMGFic3RyYWN0JTIwZnV0dXJlfGVufDB8MHx8fDE3OTIxMDc0ODd8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/steve_jobs_416858",
-  "news_score": 4,
+  "image": "https://images.unsplash.com/photo-1533557821112-0f355ba8c7ac?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8OHx8YWN0aW9uJTIwbGVhcCUyMHN0YWlyc3xlbnwwfDB8fHwxNzkyMTkzMTUzfDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/steve_jobs_416859",
+  "news_score": 2,
   "news_sample": [
-    "ai",
-    "research",
-    "space"
+    "action",
+    "build"
   ],
   "photo": {
-    "name": "Martin Martz",
-    "link": "https://unsplash.com/@martz90?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Raphael Mittendorfer",
+    "link": "https://unsplash.com/@raphmitten?utm_source=daily_motivation&utm_medium=referral"
   }
 }
