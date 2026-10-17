@@ -1,19 +1,19 @@
 {
-  "date": "2026-10-17",
-  "id": "qefe11814",
-  "theme": "action",
-  "en": "The only way to do great work is to love what you do.",
-  "ru": "Единственный способ делать великие дела — любить то, что делаешь.",
-  "author": "Steve Jobs",
-  "image": "https://images.unsplash.com/photo-1533557821112-0f355ba8c7ac?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8OHx8YWN0aW9uJTIwbGVhcCUyMHN0YWlyc3xlbnwwfDB8fHwxNzkyMTkzMTUzfDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/steve_jobs_416859",
+  "date": "2026-10-18",
+  "id": "q13ef8ab0",
+  "theme": "service",
+  "en": "The only thing necessary for the triumph of evil is for good men to do nothing.",
+  "ru": "Для торжества зла нужно лишь, чтобы хорошие люди ничего не делали.",
+  "author": "Edmund Burke",
+  "image": "https://images.unsplash.com/photo-1786719664211-7ba7fca54c0a?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTN8fGhlbHBpbmclMjBoYW5kcyUyMHRlYW13b3JrfGVufDB8MHx8fDE3OTIyNzc5NzF8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/edmund_burke_100212",
   "news_score": 2,
   "news_sample": [
-    "action",
-    "build"
+    "help",
+    "impact"
   ],
   "photo": {
-    "name": "Raphael Mittendorfer",
-    "link": "https://unsplash.com/@raphmitten?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Karata My",
+    "link": "https://unsplash.com/@karatamy?utm_source=daily_motivation&utm_medium=referral"
   }
 }

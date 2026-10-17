@@ -216,5 +216,15 @@
       "name": "Raphael Mittendorfer",
       "link": "https://unsplash.com/@raphmitten?utm_source=daily_motivation&utm_medium=referral"
     }
+  },
+  {
+    "date": "2026-10-18",
+    "id": "q13ef8ab0",
+    "theme": "service",
+    "image": "https://images.unsplash.com/photo-1786719664211-7ba7fca54c0a?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTN8fGhlbHBpbmclMjBoYW5kcyUyMHRlYW13b3JrfGVufDB8MHx8fDE3OTIyNzc5NzF8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+    "photo": {
+      "name": "Karata My",
+      "link": "https://unsplash.com/@karatamy?utm_source=daily_motivation&utm_medium=referral"
+    }
   }
 ]
