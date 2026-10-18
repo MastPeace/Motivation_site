@@ -1,19 +1,20 @@
 {
-  "date": "2026-10-18",
-  "id": "q13ef8ab0",
-  "theme": "service",
-  "en": "The only thing necessary for the triumph of evil is for good men to do nothing.",
-  "ru": "Для торжества зла нужно лишь, чтобы хорошие люди ничего не делали.",
-  "author": "Edmund Burke",
-  "image": "https://images.unsplash.com/photo-1786719664211-7ba7fca54c0a?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTN8fGhlbHBpbmclMjBoYW5kcyUyMHRlYW13b3JrfGVufDB8MHx8fDE3OTIyNzc5NzF8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/edmund_burke_100212",
-  "news_score": 2,
+  "date": "2026-10-19",
+  "id": "q55e737d2",
+  "theme": "innovation",
+  "en": "Innovation is the unyielding drive to break the status quo and develop anew.",
+  "ru": "Инновация — непреклонное стремление сломать статус-кво и создать новое.",
+  "author": "Marc Benioff",
+  "image": "https://images.unsplash.com/photo-1655635643486-a17bc48771ff?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8Mnx8dGVjaG5vbG9neSUyMGFic3RyYWN0JTIwZnV0dXJlfGVufDB8MHx8fDE3OTIzNjQyNzB8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/marc_benioff_752364",
+  "news_score": 3,
   "news_sample": [
-    "help",
-    "impact"
+    "ai",
+    "space",
+    "quantum"
   ],
   "photo": {
-    "name": "Karata My",
-    "link": "https://unsplash.com/@karatamy?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Google DeepMind",
+    "link": "https://unsplash.com/@googledeepmind?utm_source=daily_motivation&utm_medium=referral"
   }
 }
