@@ -1,19 +1,19 @@
 {
-  "date": "2026-10-20",
-  "id": "qc91739be",
-  "theme": "innovation",
-  "en": "Do not go where the path may lead, go instead where there is no path and leave a trail.",
-  "ru": "Не иди туда, куда ведёт тропа. Иди туда, где тропы нет, — и оставь след.",
-  "author": "Ralph Waldo Emerson",
-  "image": "https://images.unsplash.com/photo-1757898023680-df17835d6b18?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8NHx8dGVjaG5vbG9neSUyMGFic3RyYWN0JTIwZnV0dXJlfGVufDB8MHx8fDE3OTI0NTUxMzJ8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/ralph_waldo_emerson_100391",
-  "news_score": 3,
+  "date": "2026-10-21",
+  "id": "qf343bd23",
+  "theme": "action",
+  "en": "The best time to plant a tree was twenty years ago. The second best time is now.",
+  "ru": "Лучшее время посадить дерево было двадцать лет назад. Следующее лучшее — сейчас.",
+  "author": "Chinese Proverb",
+  "image": "https://images.unsplash.com/photo-1533557821112-0f355ba8c7ac?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8N3x8YWN0aW9uJTIwbGVhcCUyMHN0YWlyc3xlbnwwfDB8fHwxNzkyNTM5OTY1fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://en.wikiquote.org/wiki/Chinese_proverbs",
+  "news_score": 4,
   "news_sample": [
-    "ai",
-    "space"
+    "launch",
+    "create"
   ],
   "photo": {
-    "name": "jonakoh _",
-    "link": "https://unsplash.com/@jonakoh?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Raphael Mittendorfer",
+    "link": "https://unsplash.com/@raphmitten?utm_source=daily_motivation&utm_medium=referral"
   }
 }
