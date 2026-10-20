@@ -1,20 +1,19 @@
 {
-  "date": "2026-10-19",
-  "id": "q55e737d2",
+  "date": "2026-10-20",
+  "id": "qc91739be",
   "theme": "innovation",
-  "en": "Innovation is the unyielding drive to break the status quo and develop anew.",
-  "ru": "Инновация — непреклонное стремление сломать статус-кво и создать новое.",
-  "author": "Marc Benioff",
-  "image": "https://images.unsplash.com/photo-1655635643486-a17bc48771ff?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8Mnx8dGVjaG5vbG9neSUyMGFic3RyYWN0JTIwZnV0dXJlfGVufDB8MHx8fDE3OTIzNjQyNzB8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/marc_benioff_752364",
+  "en": "Do not go where the path may lead, go instead where there is no path and leave a trail.",
+  "ru": "Не иди туда, куда ведёт тропа. Иди туда, где тропы нет, — и оставь след.",
+  "author": "Ralph Waldo Emerson",
+  "image": "https://images.unsplash.com/photo-1757898023680-df17835d6b18?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8NHx8dGVjaG5vbG9neSUyMGFic3RyYWN0JTIwZnV0dXJlfGVufDB8MHx8fDE3OTI0NTUxMzJ8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/ralph_waldo_emerson_100391",
   "news_score": 3,
   "news_sample": [
     "ai",
-    "space",
-    "quantum"
+    "space"
   ],
   "photo": {
-    "name": "Google DeepMind",
-    "link": "https://unsplash.com/@googledeepmind?utm_source=daily_motivation&utm_medium=referral"
+    "name": "jonakoh _",
+    "link": "https://unsplash.com/@jonakoh?utm_source=daily_motivation&utm_medium=referral"
   }
 }
