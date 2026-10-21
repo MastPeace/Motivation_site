@@ -256,5 +256,15 @@
       "name": "Raphael Mittendorfer",
       "link": "https://unsplash.com/@raphmitten?utm_source=daily_motivation&utm_medium=referral"
     }
+  },
+  {
+    "date": "2026-10-22",
+    "id": "qc4a7c927",
+    "theme": "service",
+    "image": "https://images.unsplash.com/photo-1556484687-30636164638b?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8NXx8aGVscGluZyUyMGhhbmRzJTIwdGVhbXdvcmt8ZW58MHwwfHx8MTc5MjYyNzA4M3ww&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+    "photo": {
+      "name": "Clay Banks",
+      "link": "https://unsplash.com/@claybanks?utm_source=daily_motivation&utm_medium=referral"
+    }
   }
 ]
