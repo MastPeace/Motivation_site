@@ -1,19 +1,19 @@
 {
-  "date": "2026-10-22",
-  "id": "qc4a7c927",
-  "theme": "service",
-  "en": "Service to others is the rent you pay for your room here on earth.",
-  "ru": "Служение другим — это арендная плата за твою комнату на земле.",
-  "author": "Muhammad Ali",
-  "image": "https://images.unsplash.com/photo-1556484687-30636164638b?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8NXx8aGVscGluZyUyMGhhbmRzJTIwdGVhbXdvcmt8ZW58MHwwfHx8MTc5MjYyNzA4M3ww&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/muhammad_ali_111369",
-  "news_score": 2,
+  "date": "2026-10-23",
+  "id": "q9639789c",
+  "theme": "innovation",
+  "en": "Innovation is seeing what everybody has seen and thinking what nobody has thought.",
+  "ru": "Инновация — видеть то, что видят все, и думать то, что не думал никто.",
+  "author": "Albert Szent-Györgyi",
+  "image": "https://images.unsplash.com/photo-1660165458059-57cfb6cc87e5?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTN8fHRlY2hub2xvZ3klMjBhYnN0cmFjdCUyMGZ1dHVyZXxlbnwwfDB8fHwxNzkyNzEzNDExfDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/albert_szent_gyorgyi_118081",
+  "news_score": 3,
   "news_sample": [
-    "mission",
-    "help"
+    "ai",
+    "disrupt"
   ],
   "photo": {
-    "name": "Clay Banks",
-    "link": "https://unsplash.com/@claybanks?utm_source=daily_motivation&utm_medium=referral"
+    "name": "and machines",
+    "link": "https://unsplash.com/@and_machines?utm_source=daily_motivation&utm_medium=referral"
   }
 }

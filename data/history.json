@@ -266,5 +266,15 @@
       "name": "Clay Banks",
       "link": "https://unsplash.com/@claybanks?utm_source=daily_motivation&utm_medium=referral"
     }
+  },
+  {
+    "date": "2026-10-23",
+    "id": "q9639789c",
+    "theme": "innovation",
+    "image": "https://images.unsplash.com/photo-1660165458059-57cfb6cc87e5?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTN8fHRlY2hub2xvZ3klMjBhYnN0cmFjdCUyMGZ1dHVyZXxlbnwwfDB8fHwxNzkyNzEzNDExfDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+    "photo": {
+      "name": "and machines",
+      "link": "https://unsplash.com/@and_machines?utm_source=daily_motivation&utm_medium=referral"
+    }
   }
 ]
