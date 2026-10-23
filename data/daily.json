@@ -1,19 +1,19 @@
 {
-  "date": "2026-10-23",
-  "id": "q9639789c",
-  "theme": "innovation",
-  "en": "Innovation is seeing what everybody has seen and thinking what nobody has thought.",
-  "ru": "Инновация — видеть то, что видят все, и думать то, что не думал никто.",
-  "author": "Albert Szent-Györgyi",
-  "image": "https://images.unsplash.com/photo-1660165458059-57cfb6cc87e5?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTN8fHRlY2hub2xvZ3klMjBhYnN0cmFjdCUyMGZ1dHVyZXxlbnwwfDB8fHwxNzkyNzEzNDExfDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/albert_szent_gyorgyi_118081",
-  "news_score": 3,
+  "date": "2026-10-24",
+  "id": "q89a3025b",
+  "theme": "change",
+  "en": "We cannot solve our problems with the same thinking we used when we created them.",
+  "ru": "Невозможно решить проблему тем же мышлением, которое её породило.",
+  "author": "Albert Einstein",
+  "image": "https://images.unsplash.com/photo-1597201423947-3e0028337902?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8NXx8Y2hhbmdlJTIwcGF0aCUyMHdvb2RzJTIwZGF3bnxlbnwwfDB8fHwxNzkyNzk5MzI0fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/albert_einstein_121993",
+  "news_score": 2,
   "news_sample": [
-    "ai",
-    "disrupt"
+    "transform",
+    "change"
   ],
   "photo": {
-    "name": "and machines",
-    "link": "https://unsplash.com/@and_machines?utm_source=daily_motivation&utm_medium=referral"
+    "name": "ActionVance",
+    "link": "https://unsplash.com/@actionvance?utm_source=daily_motivation&utm_medium=referral"
   }
 }

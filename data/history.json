@@ -276,5 +276,15 @@
       "name": "and machines",
       "link": "https://unsplash.com/@and_machines?utm_source=daily_motivation&utm_medium=referral"
     }
+  },
+  {
+    "date": "2026-10-24",
+    "id": "q89a3025b",
+    "theme": "change",
+    "image": "https://images.unsplash.com/photo-1597201423947-3e0028337902?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8NXx8Y2hhbmdlJTIwcGF0aCUyMHdvb2RzJTIwZGF3bnxlbnwwfDB8fHwxNzkyNzk5MzI0fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+    "photo": {
+      "name": "ActionVance",
+      "link": "https://unsplash.com/@actionvance?utm_source=daily_motivation&utm_medium=referral"
+    }
   }
 ]
