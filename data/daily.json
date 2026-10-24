@@ -1,19 +1,19 @@
 {
-  "date": "2026-10-24",
-  "id": "q89a3025b",
-  "theme": "change",
-  "en": "We cannot solve our problems with the same thinking we used when we created them.",
-  "ru": "Невозможно решить проблему тем же мышлением, которое её породило.",
-  "author": "Albert Einstein",
-  "image": "https://images.unsplash.com/photo-1597201423947-3e0028337902?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8NXx8Y2hhbmdlJTIwcGF0aCUyMHdvb2RzJTIwZGF3bnxlbnwwfDB8fHwxNzkyNzk5MzI0fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/albert_einstein_121993",
-  "news_score": 2,
+  "date": "2026-10-25",
+  "id": "q2bf8c693",
+  "theme": "rest",
+  "en": "He who fears he shall suffer already suffers what he fears.",
+  "ru": "Тот, кто боится страдания, уже страдает от своего страха.",
+  "author": "Michel de Montaigne",
+  "image": "https://images.unsplash.com/photo-1545500425-a514ded6a000?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTN8fGNhbG0lMjBsYWtlJTIwc3VucmlzZXxlbnwwfDB8fHwxNzkyODgzMDMyfDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/michel_de_montaigne_107305",
+  "news_score": 3,
   "news_sample": [
-    "transform",
-    "change"
+    "rest",
+    "heal"
   ],
   "photo": {
-    "name": "ActionVance",
-    "link": "https://unsplash.com/@actionvance?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Yuriy Bogdanov",
+    "link": "https://unsplash.com/@profepix?utm_source=daily_motivation&utm_medium=referral"
   }
 }
