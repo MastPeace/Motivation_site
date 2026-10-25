@@ -1,19 +1,18 @@
 {
-  "date": "2026-10-25",
-  "id": "q2bf8c693",
-  "theme": "rest",
-  "en": "He who fears he shall suffer already suffers what he fears.",
-  "ru": "Тот, кто боится страдания, уже страдает от своего страха.",
-  "author": "Michel de Montaigne",
-  "image": "https://images.unsplash.com/photo-1545500425-a514ded6a000?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTN8fGNhbG0lMjBsYWtlJTIwc3VucmlzZXxlbnwwfDB8fHwxNzkyODgzMDMyfDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/michel_de_montaigne_107305",
+  "date": "2026-10-26",
+  "id": "q8ddca708",
+  "theme": "action",
+  "en": "Courage starts with showing up and letting ourselves be seen.",
+  "ru": "Смелость начинается с того, чтобы прийти и позволить себя увидеть.",
+  "author": "Brené Brown",
+  "image": "https://images.unsplash.com/photo-1501116496206-1aff990c82b3?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTF8fGFjdGlvbiUyMGxlYXAlMjBzdGFpcnN8ZW58MHwwfHx8MTc5Mjk2OTcyNHww&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/brene_brown_499501",
   "news_score": 3,
   "news_sample": [
-    "rest",
-    "heal"
+    "build"
   ],
   "photo": {
-    "name": "Yuriy Bogdanov",
-    "link": "https://unsplash.com/@profepix?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Mahdis Mousavi",
+    "link": "https://unsplash.com/@dissii?utm_source=daily_motivation&utm_medium=referral"
   }
 }
