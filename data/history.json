@@ -326,5 +326,15 @@
       "name": "Logan Voss",
       "link": "https://unsplash.com/@loganvoss?utm_source=daily_motivation&utm_medium=referral"
     }
+  },
+  {
+    "date": "2026-10-29",
+    "id": "qa5179fed",
+    "theme": "learning",
+    "image": "https://images.unsplash.com/photo-1573142143200-2a6d95ae7352?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTF8fHJlYWRpbmclMjBib29rcyUyMGxpYnJhcnl8ZW58MHwwfHx8MTc5MzIzNDY5OHww&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+    "photo": {
+      "name": "Hümâ H. Yardım",
+      "link": "https://unsplash.com/@humayardim?utm_source=daily_motivation&utm_medium=referral"
+    }
   }
 ]

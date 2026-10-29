@@ -1,19 +1,20 @@
 {
-  "date": "2026-10-28",
-  "id": "q043c1ae6",
-  "theme": "innovation",
-  "en": "Talent hits a target no one else can hit. Genius hits a target no one else can see.",
-  "ru": "Талант попадает в цель, в которую никто не может попасть. Гений — в цель, которую никто не видит.",
-  "author": "Arthur Schopenhauer",
-  "image": "https://images.unsplash.com/photo-1762279389042-9439bfb6c155?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTJ8fHRlY2hub2xvZ3klMjBhYnN0cmFjdCUyMGZ1dHVyZXxlbnwwfDB8fHwxNzkzMTQ3MDI2fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/arthur_schopenhauer_106531",
-  "news_score": 2,
+  "date": "2026-10-29",
+  "id": "qa5179fed",
+  "theme": "learning",
+  "en": "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
+  "ru": "Скажи мне — и я забуду. Научи меня — и я запомню. Вовлеки меня — и я научусь.",
+  "author": "Benjamin Franklin",
+  "image": "https://images.unsplash.com/photo-1573142143200-2a6d95ae7352?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTF8fHJlYWRpbmclMjBib29rcyUyMGxpYnJhcnl8ZW58MHwwfHx8MTc5MzIzNDY5OHww&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/benjamin_franklin_100239",
+  "news_score": 4,
   "news_sample": [
-    "ai",
-    "disrupt"
+    "study",
+    "grow",
+    "discover"
   ],
   "photo": {
-    "name": "Logan Voss",
-    "link": "https://unsplash.com/@loganvoss?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Hümâ H. Yardım",
+    "link": "https://unsplash.com/@humayardim?utm_source=daily_motivation&utm_medium=referral"
   }
 }
