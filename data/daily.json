@@ -1,20 +1,19 @@
 {
-  "date": "2026-10-29",
-  "id": "qa5179fed",
-  "theme": "learning",
-  "en": "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
-  "ru": "Скажи мне — и я забуду. Научи меня — и я запомню. Вовлеки меня — и я научусь.",
-  "author": "Benjamin Franklin",
-  "image": "https://images.unsplash.com/photo-1573142143200-2a6d95ae7352?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTF8fHJlYWRpbmclMjBib29rcyUyMGxpYnJhcnl8ZW58MHwwfHx8MTc5MzIzNDY5OHww&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/benjamin_franklin_100239",
-  "news_score": 4,
+  "date": "2026-10-30",
+  "id": "qaac2bc91",
+  "theme": "action",
+  "en": "The secret of getting ahead is getting started.",
+  "ru": "Секрет продвижения — начать.",
+  "author": "Mark Twain",
+  "image": "https://images.unsplash.com/photo-1685811327877-7a82ebfe8395?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8Nnx8YWN0aW9uJTIwbGVhcCUyMHN0YWlyc3xlbnwwfDB8fHwxNzkzMzIxMTc1fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/mark_twain_100577",
+  "news_score": 3,
   "news_sample": [
-    "study",
-    "grow",
-    "discover"
+    "launch",
+    "create"
   ],
   "photo": {
-    "name": "Hümâ H. Yardım",
-    "link": "https://unsplash.com/@humayardim?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Tim Wilson",
+    "link": "https://unsplash.com/@timwilson7?utm_source=daily_motivation&utm_medium=referral"
   }
 }
