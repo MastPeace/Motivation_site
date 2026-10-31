@@ -1,20 +1,18 @@
 {
-  "date": "2026-10-31",
-  "id": "qad9c9d58",
-  "theme": "innovation",
-  "en": "Logic will get you from A to B. Imagination will take you everywhere.",
-  "ru": "Логика доставит тебя из точки А в точку Б. Воображение — куда угодно.",
-  "author": "Albert Einstein",
-  "image": "https://images.unsplash.com/photo-1781444549941-c71a30d42763?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTN8fHRlY2hub2xvZ3klMjBhYnN0cmFjdCUyMGZ1dHVyZXxlbnwwfDB8fHwxNzkzNDA3MDY1fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/albert_einstein_100002",
-  "news_score": 4,
+  "date": "2026-11-01",
+  "id": "q9356093c",
+  "theme": "perseverance",
+  "en": "He who has a why to live can bear almost any how.",
+  "ru": "Тот, у кого есть ради чего жить, вынесет почти любое как.",
+  "author": "Friedrich Nietzsche",
+  "image": "https://images.unsplash.com/photo-1764014936889-9be94965694d?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8N3x8cGVyc2V2ZXJhbmNlJTIwbW91bnRhaW4lMjBjbGltYmVyfGVufDB8MHx8fDE3OTM0OTExOTd8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://en.wikiquote.org/wiki/Friedrich_Nietzsche",
+  "news_score": 1,
   "news_sample": [
-    "ai",
-    "research",
-    "space"
+    "struggle"
   ],
   "photo": {
-    "name": "Brecht Corbeel",
-    "link": "https://unsplash.com/@brechtcorbeel?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Zafer Altan",
+    "link": "https://unsplash.com/@zaferaltann?utm_source=daily_motivation&utm_medium=referral"
   }
 }

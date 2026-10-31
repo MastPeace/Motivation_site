@@ -356,5 +356,15 @@
       "name": "Brecht Corbeel",
       "link": "https://unsplash.com/@brechtcorbeel?utm_source=daily_motivation&utm_medium=referral"
     }
+  },
+  {
+    "date": "2026-11-01",
+    "id": "q9356093c",
+    "theme": "perseverance",
+    "image": "https://images.unsplash.com/photo-1764014936889-9be94965694d?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8N3x8cGVyc2V2ZXJhbmNlJTIwbW91bnRhaW4lMjBjbGltYmVyfGVufDB8MHx8fDE3OTM0OTExOTd8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+    "photo": {
+      "name": "Zafer Altan",
+      "link": "https://unsplash.com/@zaferaltann?utm_source=daily_motivation&utm_medium=referral"
+    }
   }
 ]
