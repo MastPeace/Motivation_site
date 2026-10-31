@@ -346,5 +346,15 @@
       "name": "Tim Wilson",
       "link": "https://unsplash.com/@timwilson7?utm_source=daily_motivation&utm_medium=referral"
     }
+  },
+  {
+    "date": "2026-10-31",
+    "id": "qad9c9d58",
+    "theme": "innovation",
+    "image": "https://images.unsplash.com/photo-1781444549941-c71a30d42763?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTN8fHRlY2hub2xvZ3klMjBhYnN0cmFjdCUyMGZ1dHVyZXxlbnwwfDB8fHwxNzkzNDA3MDY1fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+    "photo": {
+      "name": "Brecht Corbeel",
+      "link": "https://unsplash.com/@brechtcorbeel?utm_source=daily_motivation&utm_medium=referral"
+    }
   }
 ]
