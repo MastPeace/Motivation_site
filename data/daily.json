@@ -1,18 +1,19 @@
 {
-  "date": "2026-11-01",
-  "id": "q9356093c",
-  "theme": "perseverance",
-  "en": "He who has a why to live can bear almost any how.",
-  "ru": "Тот, у кого есть ради чего жить, вынесет почти любое как.",
-  "author": "Friedrich Nietzsche",
-  "image": "https://images.unsplash.com/photo-1764014936889-9be94965694d?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8N3x8cGVyc2V2ZXJhbmNlJTIwbW91bnRhaW4lMjBjbGltYmVyfGVufDB8MHx8fDE3OTM0OTExOTd8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://en.wikiquote.org/wiki/Friedrich_Nietzsche",
-  "news_score": 1,
+  "date": "2026-11-02",
+  "id": "q0d757605",
+  "theme": "hope",
+  "en": "When you arise in the morning, think of what a precious privilege it is to be alive.",
+  "ru": "Проснувшись утром, подумай о том, какая это драгоценная привилегия — быть живым.",
+  "author": "Marcus Aurelius",
+  "image": "https://images.unsplash.com/photo-1593982504988-47e62c7a4622?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTF8fGhvcGUlMjBzdW5yaXNlJTIwaG9yaXpvbnxlbnwwfDB8fHwxNzkzNTc5NDQ1fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://en.wikiquote.org/wiki/Marcus_Aurelius",
+  "news_score": 2,
   "news_sample": [
-    "struggle"
+    "hope",
+    "future"
   ],
   "photo": {
-    "name": "Zafer Altan",
-    "link": "https://unsplash.com/@zaferaltann?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Josh Kahen",
+    "link": "https://unsplash.com/@joshkahen?utm_source=daily_motivation&utm_medium=referral"
   }
 }
