@@ -376,5 +376,15 @@
       "name": "Josh Kahen",
       "link": "https://unsplash.com/@joshkahen?utm_source=daily_motivation&utm_medium=referral"
     }
+  },
+  {
+    "date": "2026-11-03",
+    "id": "q33ed5dcb",
+    "theme": "courage",
+    "image": "https://images.unsplash.com/photo-1629808208525-78201b4b04b8?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MXx8Y291cmFnZSUyMGxpb24lMjBkdXNrfGVufDB8MHx8fDE3OTM2NzQzMDZ8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+    "photo": {
+      "name": "Shiku Wangombe",
+      "link": "https://unsplash.com/@shiku_w?utm_source=daily_motivation&utm_medium=referral"
+    }
   }
 ]
