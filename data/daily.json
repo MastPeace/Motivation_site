@@ -1,19 +1,19 @@
 {
-  "date": "2026-11-04",
-  "id": "q9330555c",
-  "theme": "innovation",
-  "en": "The first rule of any technology used in a business is that automation applied to an efficient operation will magnify the efficiency. The second is that automation applied to an inefficient operation will magnify the inefficiency.",
-  "ru": "Первое правило технологий: автоматизация эффективного процесса повышает эффективность. Второе: автоматизация неэффективного повышает неэффективность.",
-  "author": "Bill Gates",
-  "image": "https://images.unsplash.com/photo-1757466762489-52fea38071ad?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8Nnx8dGVjaG5vbG9neSUyMGFic3RyYWN0JTIwZnV0dXJlfGVufDB8MHx8fDE3OTM3NTQ3MjN8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/bill_gates_404553",
-  "news_score": 4,
+  "date": "2026-11-05",
+  "id": "q5a8e4ac1",
+  "theme": "rest",
+  "en": "There is nothing permanent except change.",
+  "ru": "Нет ничего постояннее перемен.",
+  "author": "Heraclitus",
+  "image": "https://images.unsplash.com/photo-1545500425-a514ded6a000?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTN8fGNhbG0lMjBsYWtlJTIwc3VucmlzZXxlbnwwfDB8fHwxNzkzODQxODg1fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://en.wikiquote.org/wiki/Heraclitus",
+  "news_score": 3,
   "news_sample": [
-    "ai",
-    "disrupt"
+    "recover",
+    "heal"
   ],
   "photo": {
-    "name": "jonakoh _",
-    "link": "https://unsplash.com/@jonakoh?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Yuriy Bogdanov",
+    "link": "https://unsplash.com/@profepix?utm_source=daily_motivation&utm_medium=referral"
   }
 }
