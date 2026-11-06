@@ -1,19 +1,19 @@
 {
-  "date": "2026-11-05",
-  "id": "q5a8e4ac1",
-  "theme": "rest",
-  "en": "There is nothing permanent except change.",
-  "ru": "Нет ничего постояннее перемен.",
-  "author": "Heraclitus",
-  "image": "https://images.unsplash.com/photo-1545500425-a514ded6a000?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTN8fGNhbG0lMjBsYWtlJTIwc3VucmlzZXxlbnwwfDB8fHwxNzkzODQxODg1fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://en.wikiquote.org/wiki/Heraclitus",
-  "news_score": 3,
+  "date": "2026-11-06",
+  "id": "qb2d53cef",
+  "theme": "change",
+  "en": "You must be the change you wish to see in the world.",
+  "ru": "Будь той переменой, которую хочешь увидеть в мире.",
+  "author": "Mahatma Gandhi",
+  "image": "https://images.unsplash.com/photo-1507139722691-cc2c94e3a2b2?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8M3x8Y2hhbmdlJTIwcGF0aCUyMHdvb2RzJTIwZGF3bnxlbnwwfDB8fHwxNzkzOTI4NDgzfDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/mahatma_gandhi_109075",
+  "news_score": 2,
   "news_sample": [
-    "recover",
-    "heal"
+    "renew",
+    "change"
   ],
   "photo": {
-    "name": "Yuriy Bogdanov",
-    "link": "https://unsplash.com/@profepix?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Adrien Tutin",
+    "link": "https://unsplash.com/@adrientutinphoto?utm_source=daily_motivation&utm_medium=referral"
   }
 }
