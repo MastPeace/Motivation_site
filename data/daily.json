@@ -1,19 +1,19 @@
 {
-  "date": "2026-11-06",
-  "id": "qb2d53cef",
-  "theme": "change",
-  "en": "You must be the change you wish to see in the world.",
-  "ru": "Будь той переменой, которую хочешь увидеть в мире.",
-  "author": "Mahatma Gandhi",
-  "image": "https://images.unsplash.com/photo-1507139722691-cc2c94e3a2b2?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8M3x8Y2hhbmdlJTIwcGF0aCUyMHdvb2RzJTIwZGF3bnxlbnwwfDB8fHwxNzkzOTI4NDgzfDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/mahatma_gandhi_109075",
-  "news_score": 2,
+  "date": "2026-11-07",
+  "id": "q7a31334c",
+  "theme": "innovation",
+  "en": "The best way to predict the future is to invent it.",
+  "ru": "Лучший способ предсказать будущее — изобрести его.",
+  "author": "Alan Kay",
+  "image": "https://images.unsplash.com/photo-1762279389042-9439bfb6c155?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTN8fHRlY2hub2xvZ3klMjBhYnN0cmFjdCUyMGZ1dHVyZXxlbnwwfDB8fHwxNzk0MDEyNTQ4fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/alan_kay_101674",
+  "news_score": 5,
   "news_sample": [
-    "renew",
-    "change"
+    "ai",
+    "space"
   ],
   "photo": {
-    "name": "Adrien Tutin",
-    "link": "https://unsplash.com/@adrientutinphoto?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Logan Voss",
+    "link": "https://unsplash.com/@loganvoss?utm_source=daily_motivation&utm_medium=referral"
   }
 }
