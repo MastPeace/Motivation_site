@@ -1,19 +1,19 @@
 {
-  "date": "2026-11-07",
-  "id": "q7a31334c",
-  "theme": "innovation",
-  "en": "The best way to predict the future is to invent it.",
-  "ru": "Лучший способ предсказать будущее — изобрести его.",
-  "author": "Alan Kay",
-  "image": "https://images.unsplash.com/photo-1762279389042-9439bfb6c155?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTN8fHRlY2hub2xvZ3klMjBhYnN0cmFjdCUyMGZ1dHVyZXxlbnwwfDB8fHwxNzk0MDEyNTQ4fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/alan_kay_101674",
-  "news_score": 5,
+  "date": "2026-11-08",
+  "id": "q17e404c5",
+  "theme": "action",
+  "en": "Well done is better than well said.",
+  "ru": "Хорошо сделано лучше, чем хорошо сказано.",
+  "author": "Benjamin Franklin",
+  "image": "https://images.unsplash.com/photo-1622464228203-ebce1c5573a9?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8NHx8YWN0aW9uJTIwbGVhcCUyMHN0YWlyc3xlbnwwfDB8fHwxNzk0MDk3MzQ3fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/benjamin_franklin_100238",
+  "news_score": 3,
   "news_sample": [
-    "ai",
-    "space"
+    "launch",
+    "build"
   ],
   "photo": {
-    "name": "Logan Voss",
-    "link": "https://unsplash.com/@loganvoss?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Parsa foroughi",
+    "link": "https://unsplash.com/@parsaforoughi?utm_source=daily_motivation&utm_medium=referral"
   }
 }
