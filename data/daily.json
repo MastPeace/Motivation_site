@@ -1,19 +1,18 @@
 {
-  "date": "2026-11-08",
-  "id": "q17e404c5",
-  "theme": "action",
-  "en": "Well done is better than well said.",
-  "ru": "Хорошо сделано лучше, чем хорошо сказано.",
-  "author": "Benjamin Franklin",
-  "image": "https://images.unsplash.com/photo-1622464228203-ebce1c5573a9?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8NHx8YWN0aW9uJTIwbGVhcCUyMHN0YWlyc3xlbnwwfDB8fHwxNzk0MDk3MzQ3fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/benjamin_franklin_100238",
-  "news_score": 3,
+  "date": "2026-11-09",
+  "id": "qcd3e650e",
+  "theme": "perseverance",
+  "en": "The impediment to action advances action. What stands in the way becomes the way.",
+  "ru": "Препятствие на пути становится путём. То, что мешает, — продвигает.",
+  "author": "Marcus Aurelius",
+  "image": "https://images.unsplash.com/photo-1790693209032-645727eeff77?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8OHx8cGVyc2V2ZXJhbmNlJTIwbW91bnRhaW4lMjBjbGltYmVyfGVufDB8MHx8fDE3OTQxODQ5MjR8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://en.wikiquote.org/wiki/Marcus_Aurelius",
+  "news_score": 1,
   "news_sample": [
-    "launch",
-    "build"
+    "comeback"
   ],
   "photo": {
-    "name": "Parsa foroughi",
-    "link": "https://unsplash.com/@parsaforoughi?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Maël BALLAND",
+    "link": "https://unsplash.com/@mael_balland?utm_source=daily_motivation&utm_medium=referral"
   }
 }
