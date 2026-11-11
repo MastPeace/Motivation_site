@@ -1,19 +1,18 @@
 {
-  "date": "2026-11-10",
-  "id": "qcaa962ec",
-  "theme": "change",
-  "en": "No man ever steps in the same river twice, for it is not the same river and he is not the same man.",
-  "ru": "В одну реку нельзя войти дважды: и река уже не та, и ты уже не тот.",
-  "author": "Heraclitus",
-  "image": "https://images.unsplash.com/photo-1507139722691-cc2c94e3a2b2?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8M3x8Y2hhbmdlJTIwcGF0aCUyMHdvb2RzJTIwZGF3bnxlbnwwfDB8fHwxNzk0MjgwOTg0fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://en.wikiquote.org/wiki/Heraclitus",
-  "news_score": 2,
+  "date": "2026-11-11",
+  "id": "qcb119085",
+  "theme": "hope",
+  "en": "The wound is the place where the Light enters you.",
+  "ru": "Рана — это место, через которое в тебя входит Свет.",
+  "author": "Rumi",
+  "image": "https://images.unsplash.com/photo-1582641857491-7e9987c2e415?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8Nnx8aG9wZSUyMHN1bnJpc2UlMjBob3Jpem9ufGVufDB8MHx8fDE3OTQzNTk0MzB8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/rumi_118996",
+  "news_score": 1,
   "news_sample": [
-    "renew",
-    "change"
+    "future"
   ],
   "photo": {
-    "name": "Adrien Tutin",
-    "link": "https://unsplash.com/@adrientutinphoto?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Luke Moss",
+    "link": "https://unsplash.com/@lmoss_photo?utm_source=daily_motivation&utm_medium=referral"
   }
 }

@@ -456,5 +456,15 @@
       "name": "Adrien Tutin",
       "link": "https://unsplash.com/@adrientutinphoto?utm_source=daily_motivation&utm_medium=referral"
     }
+  },
+  {
+    "date": "2026-11-11",
+    "id": "qcb119085",
+    "theme": "hope",
+    "image": "https://images.unsplash.com/photo-1582641857491-7e9987c2e415?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8Nnx8aG9wZSUyMHN1bnJpc2UlMjBob3Jpem9ufGVufDB8MHx8fDE3OTQzNTk0MzB8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+    "photo": {
+      "name": "Luke Moss",
+      "link": "https://unsplash.com/@lmoss_photo?utm_source=daily_motivation&utm_medium=referral"
+    }
   }
 ]
