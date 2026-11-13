@@ -1,19 +1,19 @@
 {
-  "date": "2026-11-12",
-  "id": "q060957b8",
-  "theme": "innovation",
-  "en": "A person who never made a mistake never tried anything new.",
-  "ru": "Тот, кто никогда не ошибался, никогда не пробовал ничего нового.",
-  "author": "Albert Einstein",
-  "image": "https://images.unsplash.com/photo-1633098096956-afdc8bcc8552?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8NHx8dGVjaG5vbG9neSUyMGFic3RyYWN0JTIwZnV0dXJlfGVufDB8MHx8fDE3OTQ0NDk1MjV8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/albert_einstein_100001",
-  "news_score": 4,
+  "date": "2026-11-13",
+  "id": "q226f7f9c",
+  "theme": "action",
+  "en": "Do not wait; the time will never be 'just right.' Start where you stand.",
+  "ru": "Не жди: «подходящее» время не наступит никогда. Начинай с того, что есть, и с того места, где стоишь.",
+  "author": "Napoleon Hill",
+  "image": "https://images.unsplash.com/photo-1556957027-e203e072a1db?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTR8fGFjdGlvbiUyMGxlYXAlMjBzdGFpcnN8ZW58MHwwfHx8MTc5NDUzNDI5N3ww&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/napoleon_hill_132089",
+  "news_score": 3,
   "news_sample": [
-    "ai",
-    "space"
+    "breakthrough",
+    "build"
   ],
   "photo": {
-    "name": "Nicolas Arnold",
-    "link": "https://unsplash.com/@nicolasarnold?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Clyde He",
+    "link": "https://unsplash.com/@clyde_he?utm_source=daily_motivation&utm_medium=referral"
   }
 }

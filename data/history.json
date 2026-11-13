@@ -476,5 +476,15 @@
       "name": "Nicolas Arnold",
       "link": "https://unsplash.com/@nicolasarnold?utm_source=daily_motivation&utm_medium=referral"
     }
+  },
+  {
+    "date": "2026-11-13",
+    "id": "q226f7f9c",
+    "theme": "action",
+    "image": "https://images.unsplash.com/photo-1556957027-e203e072a1db?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTR8fGFjdGlvbiUyMGxlYXAlMjBzdGFpcnN8ZW58MHwwfHx8MTc5NDUzNDI5N3ww&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+    "photo": {
+      "name": "Clyde He",
+      "link": "https://unsplash.com/@clyde_he?utm_source=daily_motivation&utm_medium=referral"
+    }
   }
 ]
