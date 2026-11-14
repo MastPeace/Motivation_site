@@ -486,5 +486,15 @@
       "name": "Clyde He",
       "link": "https://unsplash.com/@clyde_he?utm_source=daily_motivation&utm_medium=referral"
     }
+  },
+  {
+    "date": "2026-11-14",
+    "id": "qc58f7021",
+    "theme": "rest",
+    "image": "https://images.unsplash.com/photo-1678811871679-2335c4b71d43?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8OXx8Y2FsbSUyMGxha2UlMjBzdW5yaXNlfGVufDB8MHx8fDE3OTQ2MTkzODZ8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+    "photo": {
+      "name": "Nunzio Guerrera",
+      "link": "https://unsplash.com/@nunzg?utm_source=daily_motivation&utm_medium=referral"
+    }
   }
 ]
