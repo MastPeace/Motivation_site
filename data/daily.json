@@ -1,19 +1,20 @@
 {
-  "date": "2026-11-16",
-  "id": "q7a6cb683",
-  "theme": "perseverance",
-  "en": "Strength does not come from physical capacity. It comes from an indomitable will.",
-  "ru": "Сила — не от физических способностей. Она — от несгибаемой воли.",
-  "author": "Mahatma Gandhi",
-  "image": "https://images.unsplash.com/photo-1790427195243-9e5a2bdf502e?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTF8fHBlcnNldmVyYW5jZSUyMG1vdW50YWluJTIwY2xpbWJlcnxlbnwwfDB8fHwxNzk0NzkwNDYwfDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/mahatma_gandhi_109078",
-  "news_score": 2,
+  "date": "2026-11-17",
+  "id": "q061878bc",
+  "theme": "innovation",
+  "en": "Innovation distinguishes between a leader and a follower.",
+  "ru": "Инновация — вот что отличает лидера от последователя.",
+  "author": "Steve Jobs",
+  "image": "https://images.unsplash.com/photo-1633098096956-afdc8bcc8552?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8NHx8dGVjaG5vbG9neSUyMGFic3RyYWN0JTIwZnV0dXJlfGVufDB8MHx8fDE3OTQ4ODY3NTd8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/steve_jobs_416858",
+  "news_score": 9,
   "news_sample": [
-    "struggle",
-    "comeback"
+    "ai",
+    "space",
+    "robot"
   ],
   "photo": {
-    "name": "Misak Aghababyan",
-    "link": "https://unsplash.com/@misakaghababyan?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Nicolas Arnold",
+    "link": "https://unsplash.com/@nicolasarnold?utm_source=daily_motivation&utm_medium=referral"
   }
 }
