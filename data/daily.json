@@ -1,20 +1,19 @@
 {
-  "date": "2026-11-17",
-  "id": "q061878bc",
+  "date": "2026-11-18",
+  "id": "q8ad0ce38",
   "theme": "innovation",
-  "en": "Innovation distinguishes between a leader and a follower.",
-  "ru": "Инновация — вот что отличает лидера от последователя.",
-  "author": "Steve Jobs",
-  "image": "https://images.unsplash.com/photo-1633098096956-afdc8bcc8552?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8NHx8dGVjaG5vbG9neSUyMGFic3RyYWN0JTIwZnV0dXJlfGVufDB8MHx8fDE3OTQ4ODY3NTd8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/steve_jobs_416858",
-  "news_score": 9,
+  "en": "The secret of change is to focus all of your energy not on fighting the old, but on building the new.",
+  "ru": "Секрет перемен — сосредоточить всю энергию не на борьбе со старым, а на созидании нового.",
+  "author": "Socrates",
+  "image": "https://images.unsplash.com/photo-1757466762489-52fea38071ad?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8Nnx8dGVjaG5vbG9neSUyMGFic3RyYWN0JTIwZnV0dXJlfGVufDB8MHx8fDE3OTQ5NzAxNTN8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/socrates_101277",
+  "news_score": 2,
   "news_sample": [
     "ai",
-    "space",
-    "robot"
+    "space"
   ],
   "photo": {
-    "name": "Nicolas Arnold",
-    "link": "https://unsplash.com/@nicolasarnold?utm_source=daily_motivation&utm_medium=referral"
+    "name": "jonakoh _",
+    "link": "https://unsplash.com/@jonakoh?utm_source=daily_motivation&utm_medium=referral"
   }
 }
