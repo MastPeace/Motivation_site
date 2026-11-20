@@ -1,19 +1,18 @@
 {
-  "date": "2026-11-19",
-  "id": "qd5ee200d",
-  "theme": "action",
-  "en": "Do not let what you cannot do interfere with what you can do.",
-  "ru": "Не позволяй тому, что не можешь, мешать тому, что можешь.",
-  "author": "John Wooden",
-  "image": "https://images.unsplash.com/photo-1533557821112-0f355ba8c7ac?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8OXx8YWN0aW9uJTIwbGVhcCUyMHN0YWlyc3xlbnwwfDB8fHwxNzk1MDU1MjU5fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/john_wooden_100682",
-  "news_score": 4,
+  "date": "2026-11-20",
+  "id": "qd006f4f7",
+  "theme": "unity",
+  "en": "Unity is strength... when there is teamwork and collaboration, wonderful things can be achieved.",
+  "ru": "В единстве — сила. Когда есть командная работа и сотрудничество, возможны удивительные свершения.",
+  "author": "Mattie Stepanek",
+  "image": "https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8N3x8cGVvcGxlJTIwdG9nZXRoZXIlMjBncm91cHxlbnwwfDB8fHwxNzk1MTQwNzQzfDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/mattie_stepanek_420534",
+  "news_score": 2,
   "news_sample": [
-    "launch",
-    "action"
+    "peace"
   ],
   "photo": {
-    "name": "Raphael Mittendorfer",
-    "link": "https://unsplash.com/@raphmitten?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Helena Lopes",
+    "link": "https://unsplash.com/@helenalopesph?utm_source=daily_motivation&utm_medium=referral"
   }
 }
