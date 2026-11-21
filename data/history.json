@@ -556,5 +556,15 @@
       "name": "Helena Lopes",
       "link": "https://unsplash.com/@helenalopesph?utm_source=daily_motivation&utm_medium=referral"
     }
+  },
+  {
+    "date": "2026-11-21",
+    "id": "q01b54f84",
+    "theme": "learning",
+    "image": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8Nnx8cmVhZGluZyUyMGJvb2tzJTIwbGlicmFyeXxlbnwwfDB8fHwxNzk1MjI2Njc5fDA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+    "photo": {
+      "name": "Christin Hume",
+      "link": "https://unsplash.com/@christinhumephoto?utm_source=daily_motivation&utm_medium=referral"
+    }
   }
 ]
