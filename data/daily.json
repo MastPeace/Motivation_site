@@ -1,19 +1,20 @@
 {
-  "date": "2026-11-22",
-  "id": "q764612c7",
-  "theme": "gratitude",
-  "en": "Gratitude is not only the greatest of virtues, but the parent of all the others.",
-  "ru": "Благодарность — не только величайшая из добродетелей, но и мать всех прочих.",
-  "author": "Cicero",
-  "image": "https://images.unsplash.com/photo-1754163608249-202503d65bb2?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MTF8fHN1bnNldCUyMGdyYXRpdHVkZSUyMGhhbmRzfGVufDB8MHx8fDE3OTUzMDk2NDl8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
-  "source": "https://www.brainyquote.com/quotes/cicero_100316",
-  "news_score": 4,
+  "date": "2026-11-23",
+  "id": "q9639789c",
+  "theme": "innovation",
+  "en": "Innovation is seeing what everybody has seen and thinking what nobody has thought.",
+  "ru": "Инновация — видеть то, что видят все, и думать то, что не думал никто.",
+  "author": "Albert Szent-Györgyi",
+  "image": "https://images.unsplash.com/photo-1655635643486-a17bc48771ff?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8M3x8dGVjaG5vbG9neSUyMGFic3RyYWN0JTIwZnV0dXJlfGVufDB8MHx8fDE3OTUzOTc0MTl8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+  "source": "https://www.brainyquote.com/quotes/albert_szent_gyorgyi_118081",
+  "news_score": 5,
   "news_sample": [
-    "thanks",
-    "thank"
+    "ai",
+    "disrupt",
+    "space"
   ],
   "photo": {
-    "name": "Liana S",
-    "link": "https://unsplash.com/@cherstve_pechivo?utm_source=daily_motivation&utm_medium=referral"
+    "name": "Google DeepMind",
+    "link": "https://unsplash.com/@googledeepmind?utm_source=daily_motivation&utm_medium=referral"
   }
 }
