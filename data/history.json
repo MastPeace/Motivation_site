@@ -586,5 +586,15 @@
       "name": "Google DeepMind",
       "link": "https://unsplash.com/@googledeepmind?utm_source=daily_motivation&utm_medium=referral"
     }
+  },
+  {
+    "date": "2026-11-24",
+    "id": "q59ff28d4",
+    "theme": "hope",
+    "image": "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixid=M3wxMTAwNDI5fDB8MXxzZWFyY2h8MXx8aG9wZSUyMHN1bnJpc2UlMjBob3Jpem9ufGVufDB8MHx8fDE3OTU0OTcyNDZ8MA&ixlib=rb-4.1.0&w=1200&h=800&fit=crop&q=80",
+    "photo": {
+      "name": "Dawid Zawiła",
+      "link": "https://unsplash.com/@davealmine?utm_source=daily_motivation&utm_medium=referral"
+    }
   }
 ]
